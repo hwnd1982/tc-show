@@ -1,0 +1,34 @@
+.modal-manager
+  display: grid
+  grid-template-columns: repeat(2, 430px)
+  &__content
+    height: fit-content
+    align-self: center
+    padding: 46px 50px
+  &__form
+    display: flex
+    flex-direction: column
+    gap: 20px  
+  &__img
+    display: block
+    background-image: url(../img/modals/manager.png)
+    background-size: cover
+  &__submit
+    padding-top: 25px    
+
+@media screen and ( max-width: 991px )
+  .modal-manager
+    display: grid
+    grid-template-columns: 430px
+    &__img
+      display: none  
+
+@media screen and ( max-width: 576px )
+  .modal-manager
+    width: 100%
+    height: 100%  
+    display: flex
+    justify-content: center
+    border-radius: 0
+    &__content
+      padding: 50px 15px 

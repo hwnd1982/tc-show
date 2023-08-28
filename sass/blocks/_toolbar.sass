@@ -1,0 +1,104 @@
+.toolbar
+  display: none
+  max-width: 100vw
+  justify-self: end
+  width: 100%
+  z-index: 60
+  &__list
+    display: flex
+    gap: 45px
+    justify-content: end
+  &__item
+    position: relative
+    &._mobile
+      display: none
+    &:last-child
+      padding-right: 12px
+  &__link
+    position: relative
+    display: block
+    padding: 0
+    background-color: transparent
+    border: none
+    +gil3
+    color: $text
+    font-size: 11px
+    padding-bottom: 22px
+    transition: .4s
+    &:hover
+      color: $prime
+  &__name
+    position: absolute
+    bottom: 0
+    right: 50%
+    transform: translateX(50%)
+  &__count
+    position: absolute
+    top: 0
+    right: 0
+    padding: 4px 6px 1px
+    min-width: 22px
+    min-height: 22px
+    +gil6
+    text-align: center
+    font-size: 14px
+    line-height: 17px
+    color: #fff
+    border-radius: 47px
+    background-image: $linear-main
+    background-size: 350%
+    background-repeat: repeat-y
+    background-position: 100%
+    transform: translate(50%, -50%)
+    &._null
+      display: none
+
+@media screen and ( max-width: 1399px )
+  .toolbar
+    &__list
+      gap: 35px
+
+@media screen and ( max-width: 991px )
+  .toolbar
+    position: fixed
+    display: block
+    -webkit-transform: translateZ(10px)
+    bottom: 0
+    left: 0
+    right: 0
+    padding: 14px 0 6px
+    background-color: #fff
+    box-shadow: 0px -12px 30px rgba(0, 0, 0, 0.06)
+    min-width: 375px
+    transition: .4s
+    &._hidden
+      transform: translateY(100%)
+      -webkit-transform: translateZ(0) translateY(100%)
+    &__list
+      justify-content: space-between
+      max-width: 720px
+      width: 100%
+      padding-right: calc(1rem + -7px)
+      padding-left: calc(1rem + -2px)
+      margin-right: auto
+      margin-left: auto
+      gap: 20px
+    &__link
+      font-size: 10px
+      padding-bottom: 18px
+    &__item
+      &:last-child
+        order: 2
+      &:first-child
+        order: 1
+      &._mobile
+        display: block
+    &__count
+      padding: 4px 7px 3px
+      font-size: 12px
+      line-height: 15px
+
+@media screen and ( max-width: 767px )
+  .toolbar
+    &__list
+      max-width: 540px

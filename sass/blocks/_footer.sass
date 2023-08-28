@@ -1,0 +1,197 @@
+.footer
+  padding: 60px 0 0
+  background-color: #F9F8F6
+  transition: .4s
+  &__container
+    display: grid
+    grid-template-areas: 'contacts catalog client' 'copyright copyright copyright'
+    grid-template-columns: 329px 1fr 299px
+  &__contacts
+    grid-area: contacts
+    &-content
+      display: grid
+      grid-template-areas: 'address' 'time' 'phone' 'mail' 'social'
+  &__catalog
+    grid-area: catalog
+  &__client
+    grid-area: client
+  &__copyright
+    grid-area: copyright
+    display: flex
+    order: 2
+    justify-content: space-between
+    flex-basis: 100%
+    padding: 25px 0
+    margin-top: 48px
+    border-top: 1px solid #D9D9D9
+    &-text
+      font-size: 14px
+      color: #9D9D9D
+    &-link
+      color: #141414
+      transition: .4s
+      &:hover
+        color: $prime
+  &__title
+    +gil5
+    font-size: 20px
+    margin-bottom: 26px
+  &__list
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    align-content: flex-start
+    gap: 14px 55px
+    max-height: 311px
+  &__phone
+    grid-area: phone
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    margin-bottom: 24px
+  &__mail
+    grid-area: mail
+    margin-bottom: 20px
+  &__link
+    color: $text
+    transition: .4s
+    &:hover
+      color: $prime
+  &__address
+    grid-area: address
+    font-size: 18px
+    +gil5
+    background-image: $linear-main
+    +text-linear
+    margin-bottom: 6px
+    padding-top: 2px
+  &__subtitle
+    color: #9D9D9D
+    margin-bottom: 6px
+  &__work-time
+    grid-area: time
+    margin-bottom: 20px
+  &__social
+    grid-area: social
+    height: 28px
+  &__arrow
+    display: none
+    color: #9D9D9D
+  &__contact-link
+    font-size: 18px
+    line-height: 1.5
+    &:last-child
+      padding-top: 4px
+
+@media screen and ( max-width: 1399px )
+  .footer
+    &__container
+      grid-template-columns: 300px 1fr max-content
+    &__list
+      gap: 14px 40px
+
+@media screen and ( max-width: 1199px )
+  .footer
+    &__container
+      grid-template-areas: 'contacts contacts' 'catalog client' 'copyright copyright'
+      grid-template-columns: 1fr 237px
+      row-gap: 24px
+    &__item
+      min-width: 237px
+    &__contacts
+      &-content
+        grid-template-areas: 'address phone mail' 'time .social'
+        grid-template-columns: 310px 1fr 237px
+    &__work-time, &__mail, &__phone, &__address, &__social
+      margin-bottom: 0
+    &__address
+      padding-top: 25px
+
+@media screen and ( max-width: 991px )
+  .footer
+    padding: 50px 0 60px
+    &__container
+      grid-template-areas: 'contacts client' 'catalog catalog' 'copyright copyright'
+      grid-template-columns: 1fr 237px
+      row-gap: 24px
+    &__item
+      min-width: 237px
+    &__contacts
+      &-content
+        grid-template-areas: 'address' 'time' 'phone' 'mail' 'social'
+        grid-template-columns: 1fr
+    &__address
+      max-width: 310px
+    &__phone, &__address, &__work-time
+      margin-bottom: 14px
+    &__mail
+      margin-bottom: 20px
+    &__address
+      padding-top: 0
+    &__list
+      align-content: space-between
+    &__subtitle
+      display: none
+
+@media screen and ( max-width: 767px )
+  .footer
+    padding: 40px 0 60px
+    &._product
+      padding: 40px 0 200px
+    &__container
+      grid-template-areas: "contacts" "catalog" "client" "copyright"
+      grid-template-columns: 1fr
+      row-gap: 16px
+    &__title
+      display: flex
+      justify-content: space-between
+      align-items: center
+      font-size: 18px
+      margin-bottom: 16px
+      transition: .4s
+      ._active &
+        color: $prime
+    &__contacts, &__catalog, &__client
+      height: 42px
+      padding-bottom: 16px
+      transition: .4s
+      overflow: hidden
+      border-bottom: 1px solid #D9D9D9
+      &._active
+        height: 100%
+    &__list
+      max-height: none
+    &__copyright
+      flex-direction: column
+      align-items: center
+      gap: 14px
+      text-align: center
+      border: none
+      margin-top: 0
+      padding-top: 16px
+      &-text
+        font-size: 12px
+    &__arrow
+      display: block
+      transition: .4s
+      ._active &
+        color: inherit
+        transform: rotate(180deg)
+    &__address, &__contact-link
+      font-size: 16px
+      max-width: none
+      -webkit-text-fill-color: $text
+      text-fill-color: $text
+    &__address
+      margin-bottom: 8px
+    &__subtitle
+      display: block
+      margin-bottom: 0
+    &__phone
+      gap: 2px
+    &__phone, &__work-time, &__mail
+      margin-bottom: 16px
+    &__mail
+      display: flex
+      flex-direction: column
+      gap: 2px

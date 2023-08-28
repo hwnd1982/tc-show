@@ -1,0 +1,265 @@
+.feedback
+  position: relative
+  padding: 80px 0 88px
+  z-index: 1
+  background-color: #7C43F9
+  color: #fff
+  .goods._swiper + &
+    margin-top: 47px
+  .goods._favorite ~ &
+    margin-top: 50px
+  &::after
+    content: ''
+    position: absolute
+    inset: 0
+    background-image: url(../img/bg/feedback-decoration.svg)
+    background-size: 142vw 280vw
+    background-position: center
+    background-repeat: no-repeat
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    opacity: .07
+    z-index: -1
+  &__container
+    display: grid
+    grid-template-columns: 550px 1fr
+  &__call
+    max-width: 425px
+  &__title
+    font-size: 38px
+    line-height: 47px
+    margin-bottom: 22px
+    +gil6
+  &__text
+    line-height: 150%
+    +gil5
+    color: #fff
+    margin-bottom: 26px
+  &__label
+    display: block
+    font-size: 16px
+    line-height: 19px
+    +gil4
+    color: #fff
+    & span
+      display: block
+      margin-bottom: 6px
+    &._medium
+      +gil5
+    &._radio
+      display: flex
+      align-items: center
+      position: relative
+      padding-left: 38px
+      height: 28px
+    &._two-column
+      grid-column: span 2
+  &__radio
+    position: absolute
+    top: 0
+    left: 0
+    height: 0
+    -webkit-appearance: none
+    &::before, &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      height: 28px
+    &::before
+      width: 28px
+      background-color: #fff
+      border-radius: 50%
+    &::after
+      background-image: url(../img/icons/checked.svg)
+      background-repeat: no-repeat
+      background-position: 7px 9px
+      transition: .4s
+      width: 0
+    &:checked::after
+      width: 28px
+  &__input
+    display: block
+    width: 100%
+    background: #fff
+    line-height: 25.5px
+    padding: 12.75px 25px
+    border-radius: 12px
+    border: none
+    resize: none
+    transition: .4s
+    overflow: hidden
+    max-height: 102px
+    &::placeholder
+      color: #9D9D9D
+  &__fieldset
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    column-gap: 40px
+  &__contacts
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    gap: 15px
+    margin-bottom: 46px
+  &__contact
+    +gil6
+    font-size: 22px
+    color: #fff
+    transition: .4s
+    &:hover
+      color: $prime
+    &-group
+      display: flex
+      align-items: center
+      gap: 12px
+      min-height: calc(22px * 1.38)
+  &__form
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-auto-rows: max-content 1fr
+    gap: 20px 40px
+    padding-top: 16px
+    max-width: 700px
+  &__button
+    position: relative
+    display: flex
+    align-items: center
+    gap: 18px
+    border-radius: 50px
+    +gil6
+    line-height: 20px
+    &._call
+      padding: 14px 24px
+      background-color: #fff
+      box-shadow: 0px 10px 25px rgba(99, 45, 219, 0.4)
+      transition: .4s
+      & span
+        position: relative
+        transition: .4s
+        +text-linear
+        background-color: #DF55AD
+        background-image: $linear-main
+      & svg
+        fill: url(#linear-main)
+      &:hover
+        background-color: $prime
+        box-shadow: none
+        & span
+          background-color: #fff
+          background-position: 0
+        & svg
+          fill: #fff
+      &::after
+        position: absolute
+        right: 0
+        top: 0
+        transform: translate(100%, -100%)
+        content: url(../img/icons/call-decoration.svg)
+        z-index: -1
+    &._submit
+      padding: 16px 23.5px
+      flex-shrink: 0
+      color: #fff
+      +linear-main-hover(#DF55AD, $prime)
+  &__submit
+    grid-column: span 2
+    display: flex
+    align-items: center
+    gap: 20px
+    align-self: end
+    &-info
+      color: #fff
+      font-size: 12px
+      &-link
+        color: #fff
+        transition: .4s
+        border-bottom: 1px solid currentColor
+        &:hover
+          color: $prime
+
+textarea.feedback__input
+  min-height: 102px
+  overflow-y: auto
+  &::-webkit-scrollbar
+    display: none
+
+@media screen and ( max-width: 1200px )
+  .feedback
+    &__container
+      grid-template-columns: 390px 1fr
+    &__title
+      font-size: 32px
+    &__call
+      max-width: 340px
+    &__submit
+      gap: 15px
+
+@media screen and ( max-width: 992px )
+  .feedback
+    &::after
+      background-size: 605% 170%
+      background-position: top 45% center
+    &__container
+      grid-template-columns: 1fr
+    &__call
+      max-width: none
+      margin-bottom: 50px
+    &__submit
+      gap: 20px
+    &__form
+      padding: 0
+
+@media screen and ( max-width: 767px )
+  .feedback
+    padding: 70px 0
+    .goods._swiper + &
+      margin-top: 51px
+    &__call
+      display: flex
+      flex-direction: column
+      align-items: center
+    &__title
+      font-size: 26px
+      line-height: 32px
+      margin-bottom: 18px
+      max-width: 280px
+      text-align: center
+    &__text
+      text-align: center
+      margin-bottom: 18px
+    &__contacts
+      align-items: center
+      margin-bottom: 22px
+      gap: 10px
+    &__contact
+      font-size: 20px
+      min-height: 28px
+      &-group
+        flex-direction: column
+        gap: 2px
+    &__form
+      lign-items: start
+      grid-template-columns: 1fr
+      grid-auto-rows: auto
+    &__label
+      &._two-column
+        grid-column: auto
+    &__submit
+      grid-column: auto
+      flex-direction: column
+      padding-top: 25px
+      gap: 15px
+      &-info
+        text-align: center
+    &__fieldset
+      row-gap: 18px
+      & legend
+        margin-bottom: 12px
+    &__button
+      &._call
+        &::after
+          content: none
+  textarea.feedback__input
+    height: 51px
+    min-height: auto

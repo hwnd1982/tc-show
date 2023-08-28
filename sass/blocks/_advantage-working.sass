@@ -1,0 +1,42 @@
+.advantage-working
+  padding: 48px 0 50px
+  &__title
+    margin-bottom: 30px
+  &__text
+    font-size: 18px
+    line-height: 150%
+    margin-bottom: 27px
+    &:last-child
+      margin-bottom: 0
+  &__list
+    padding-left: 12px
+    margin-bottom: 27px
+    &-caption
+      font-size: 18px
+      line-height: 150%
+  &__item
+    line-height: initial
+    list-style: inside
+    font-size: 18px
+    line-height: 150%
+    margin-bottom: -2px
+    &::marker
+      font-size: 10px
+      line-height: 24px
+      vertical-align: middle
+
+@media screen and ( max-width: 767px )
+  .advantage-working
+    padding: 48px 0 26px
+    &__title
+      margin-bottom: 22px
+    &__text
+      font-size: 16px
+      margin-bottom: 24px
+    &__list
+      padding-left: 11px
+      margin-bottom: 24px
+      &-caption
+        font-size: 16px
+    &__item
+      font-size: 16px

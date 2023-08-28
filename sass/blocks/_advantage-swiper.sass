@@ -1,0 +1,51 @@
+.advantage-swiper
+  padding: 60px 0 50px
+  overflow: hidden
+  &__wrap
+    padding: 2px
+    margin: -2px
+    overflow: visible
+  &__item
+    position: relative
+    display: grid
+    grid-template-areas: 'icon title' 'icon text'
+    grid-template-columns: min-content 1fr
+    grid-template-rows: min-content 1fr
+    gap: 8px 19px
+    padding: 23px 21px 24px 23px
+    width: 300px
+    flex-shrink: 0
+    border-radius: 14px
+    align-items: start
+    z-index: 1
+    &::before, &::after
+      content: ''
+      position: absolute
+      border-radius: 14px
+      z-index: -1
+    &::after
+      inset: 1px
+      background-color: #fff
+    &::before
+      inset: 0
+      border-radius: 14.5px
+      background-image: linear-gradient(135.04deg, #DF55AD 0%, #E57582 28.46%, #ED9F5A 60.34%, #F1D872 100%)
+  &__title
+    +gil5
+    font-size: 16px
+    line-height: 138%
+    margin-bottom: 0
+  &__main-title
+    margin-bottom: 52px
+  &__text
+    grid-area: text
+    font-size: 14px
+  &__icon
+    grid-area: icon
+    align-self: center
+
+@media screen and ( max-width: 767px )
+  .advantage-swiper
+    padding: 49px 0 22px
+    &__main-title
+      margin-bottom: 26px

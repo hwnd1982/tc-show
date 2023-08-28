@@ -1,0 +1,137 @@
+.article-card
+  position: relative
+  border-radius: 20px
+  overflow: hidden
+  min-height: 536px
+  z-index: 1
+  &::before, &::after
+    content: ''
+    position: absolute
+    z-index: -1
+    border-radius: 20px
+  &::before
+    inset: 0
+    background-color: #D9D9D9
+  &::after
+    inset: 1px
+    background-color: #fff
+  &__info
+    padding: 25px
+
+  &__img
+    height: 260px
+    width: 100%
+    object-fit: cover
+    object-position: center
+  &__date
+    color: #9D9D9D
+    margin-bottom: 8px
+  &__title
+    +gil5
+    font-size: 20px
+    margin-bottom: 16px
+    &-link
+      transition: .4s
+      line-height: 1.40
+      background-color: $text
+      background-image: $linear-main
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+      background-clip: text
+      text-fill-color: transparent
+      background-size: 240%
+      background-position-x: 0
+      +text-line-overflow(3)
+      &:hover
+        background-position: 100%
+        &::after
+          background-position: 100%
+      &::after
+        position: absolute
+        content: ''
+        top: calc(25% - 50px)
+        left: 0
+        right: 0
+        bottom: 0
+        border-radius: 20px
+        background-color: transparent
+        background-image: $linear-main
+        background-size: 450%
+        z-index: -1
+        background-position: 0
+        transition: .4s
+  &__text
+    margin-bottom: 8px
+    +text-line-overflow(4)
+  &__link
+    +gil5
+    color: $prime
+    transition: .4s
+    &:hover
+      color: $text
+      &::after
+        background-position: 100%
+    &::after
+      position: absolute
+      content: ''
+      top: calc(25% - 50px)
+      left: 0
+      right: 0
+      bottom: 0
+      border-radius: 20px
+      background-color: transparent
+      background-image: $linear-main
+      background-size: 450%
+      z-index: -1
+      background-position: 0
+      transition: .4s
+
+@media screen and ( max-width: 1399px )
+  .article-card
+    min-height: 558px
+
+@media screen and ( max-width: 1199px )
+  .article-card
+    min-height: 536px
+    &__title
+      font-size: 18px
+    &__info
+      padding: 20px
+    &__text, &__link, &__date
+      font-size: 14px
+
+@media screen and ( max-width: 991px )
+  .article-card
+    border-radius: 12px
+    min-height: 341px
+    &::before, &::after
+      border-radius: 12px
+    &__img
+      height: 109px
+    &__title
+      font-size: 14px
+      margin-bottom: 8px
+      line-height: 1.35
+      &-link
+        &::after
+          background-size: 550%
+          border-radius: 12px
+    &__info
+      padding: 20px
+    &__text, &__link, &__date
+      margin-bottom: 3px
+      font-size: 12px
+      line-height: 1.4
+    &__link
+      &::after
+        background-size: 550%
+        border-radius: 12px
+
+@media screen and ( max-width: 576px )
+  .article-card
+    &__info
+      padding: 8px
+    &__title
+      -webkit-line-clamp: 4
+    &__text
+      -webkit-line-clamp: 5

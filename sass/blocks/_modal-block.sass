@@ -1,0 +1,177 @@
+.modal-overlay
+  position: fixed
+  -webkit-transform: translateZ(12px)
+  width: 100%
+  height: 100%
+  transition-property: all, z-index, transform
+  transition-duration: .4s, 0s , 0s
+  transition-delay: .2s, .4s, .4s
+  z-index: -99
+  &._show
+    z-index: 110
+    transition-delay: .0s, 0s, 0s
+    background-color: rgba(0, 0, 0, 0.2)
+    backdrop-filter: blur(2px)
+  &__container
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+  &__close
+    position: absolute
+    width: 30px
+    height: 30px
+    top: 18px
+    right: 18px
+    svg
+      object-fit: contain
+
+.modal-block
+  display: flex
+  background-image: $linear-alt
+  color: #fff
+  border-radius: 20px
+  z-index: 1
+  overflow: hidden
+  position: absolute
+  opacity: 0
+  transform: translateY(-15%)
+  transition: .4s
+  z-index: -1
+  &._show
+    position: relative
+    opacity: 1
+    transform: translateY(0)
+    transition-delay: .2s
+    z-index: 99
+  &__title-block
+    display: flex
+    flex-direction: column
+    gap: 14px
+    text-align: center
+    margin-bottom: 30px
+  &__title
+    color: #fff
+    font-size: 30px
+    line-height: calc(37 / 30)
+    margin: 0
+    +gil6
+    &-light
+      font-size: 24px
+      line-height: calc(29 / 24)
+      +gil5
+      margin: 0
+      &_size_xs
+        max-width: 300px
+  &__text
+    color: #fff
+    font-size: 14px
+    line-height: calc(19 / 14)
+  &__label
+    display: block
+    font-size: 16px
+    line-height: 19px
+    +gil4
+    color: #fff
+    & span
+      display: block
+      margin-bottom: 6px
+    &._medium
+      +gil5
+    &._radio
+      display: flex
+      align-items: center
+      position: relative
+      padding-left: 38px
+      height: 28px
+    textarea
+      height: 102px
+  &__input
+    display: block
+    width: 100%
+    background: #fff
+    font-size: 16px
+    line-height: 19px
+    padding: 16px 26px
+    border-radius: 12px
+    border: none
+    resize: none
+    &::placeholder
+      color: #9D9D9D
+  .modal-manager &__input
+    position: relative
+    height: 51px
+    max-height: 102px
+    overflow-y: auto
+    &::-webkit-scrollbar
+      display: none
+
+  &__submit
+    display: flex
+    flex-direction: column
+    align-items: center
+    text-align: center
+    gap: 16px
+    &-info
+      margin: 0 auto
+      color: #fff
+      font-size: 12px
+      line-height: calc(17 / 12)
+      &-link
+        color: #fff
+        transition: .4s
+        border-bottom: 1px solid currentColor
+        &:hover
+          color: $prime
+  &__button
+    width: 230px
+    +gil6
+    line-height: 20px
+    box-shadow: 0px 10px 25px rgba(99, 45, 219, 0.4)
+    border-radius: 34px
+    &._submit
+      padding: 16px 23.5px
+      flex-shrink: 0
+      color: #fff
+      +linear-main-hover(#DF55AD, $prime)
+  &__password
+    position: relative
+  &__password-control
+    position: absolute
+    top: 18.50px
+    right: 22.50px
+    display: inline-block
+    width: 20px
+    height: 14px
+
+@media screen and ( max-width: 576px )
+  .modal-overlay
+    &__close
+      width: 22px
+      height: 22px
+      top: 15px
+      right: 15px
+
+  .modal-block
+    transform: translateY(-105%)
+    &__title-block
+      max-width: 330px
+      margin: 0 auto
+      margin-bottom: 26px
+      gap: 16px
+    &__title
+      font-size: 26px
+      +gil5
+      &-light
+        font-size: 20px
+        margin-bottom: 4px
+        &_size_xs
+          max-width: 260px
+    &__text
+      font-size: 16px
+    &__button
+      &_size_xs
+        width: 169px
+    &__label
+      textarea
+        height: 51px

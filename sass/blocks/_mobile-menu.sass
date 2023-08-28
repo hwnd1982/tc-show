@@ -1,0 +1,58 @@
+.mobile-menu
+  position: relative
+  height: 0
+  &__search, &__list, &__call, &__info
+    display: none
+
+@media screen and ( max-width: 991px )
+  .mobile-menu
+    height: 0
+    display: block
+    overflow: hidden
+    transition: .4s
+    &__container
+      padding-top: 24px
+      padding-bottom: 24px
+    &__list
+      display: flex
+      flex-direction: column
+      gap: 23px
+      padding-bottom: 24px
+      border-bottom: 1px solid #F5F5F5
+      margin-bottom: 24px
+    &__link
+      +gil5
+      font-size: 20px
+      line-height: 24px
+      color: $text
+      white-space: nowrap
+      transition: .4s
+      &:hover
+        color: $prime
+    &__search
+      display: flex
+      margin-bottom: 31px
+    &__wrap
+      display: flex
+      align-items: center
+      gap: 34px
+      padding-bottom: 24px
+      border-bottom: 1px solid #F5F5F5
+      margin-bottom: 24px
+    &__call
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+    &__info
+      display: block
+      position: relative
+      font-size: 20px
+      padding-left: 33px
+      &:not(:last-child)
+        margin-bottom: 24px
+    &__icon
+      position: absolute
+      top: 4px
+      left: 0
+  ._open
+    height: auto

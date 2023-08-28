@@ -1,0 +1,307 @@
+.delivery
+  padding: 40px 0 100px
+  overflow: hidden
+  &, &._russia
+    & .title
+      margin-bottom: 29px
+  &._ekt
+    & .title
+      margin-bottom: 50px
+  &__subtitle, &__subtitle-desk
+    +gil5
+    margin-bottom: 2px
+  &__container
+    display: grid
+    grid-template-columns: 2fr 1fr
+    gap: 60px
+    align-items: start
+  &-price
+    padding-top: 100px
+    ._ekt & .title
+      margin-bottom: 32px
+  &__text
+    line-height: 150%
+    margin-bottom: 24px
+    &:last-child
+      margin-bottom: 0
+    &-link
+      color: $prime
+      transition: .4s
+      &:hover
+        color: $text
+    &-bold
+      +gil5
+    &-list, &-list-desk
+      margin-bottom: 24px
+      padding-left: 10px
+      &:last-child
+        margin: 0
+    &-item, &-item-desk
+      line-height: initial
+      list-style: inside
+      &::marker
+        font-size: 10px
+        line-height: 24px
+        vertical-align: middle
+  &__list
+    padding-top: 29px
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 50px
+  &__item, &__card
+    display: grid
+    position: relative
+    justify-items: center
+    z-index: 1
+    &::before, &::after
+      content: ''
+      position: absolute
+      z-index: -1
+    &::before
+      inset: -1px
+      background-image: $linear-main
+      background-size: 350%
+      background-position: 100%
+      border-radius: 21px
+      z-index: -1
+    &::after
+      inset: 0
+      background: #fff
+      border-radius: 20px
+  &__card
+    gap: 32px
+    padding: 24px 24px 40px
+    text-align: center
+    &-text
+      +gil5
+      font-size: 22px
+      ._russia + &
+        max-width: 106px
+      ._ekt + &
+        max-width: 200px
+    &-map
+      &._russia
+        max-width: 274px
+        max-height: 114%
+      &._ekt
+        max-height: 98%
+        transform: translateY(15px)
+  &__item
+    grid-template-rows: 230px 1fr min-content
+    padding: 40px
+    align-items: start
+    z-index: 1
+    &-title
+      +gil5
+      font-size: 30px
+      line-height: 100%
+      margin-bottom: 40px
+      text-align: center
+  &__map
+    display: block
+    width: 100%
+    max-height: 204px
+  &__link
+    display: flex
+    align-self: end
+    +gil6
+    align-items: center
+    justify-content: center
+    gap: 18px
+    border-radius: 50px
+    max-width: 186px
+    width: 100%
+    padding: 17px
+    flex-shrink: 0
+    color: #fff
+    +linear-main-hover(#DF55AD, $prime)
+    &:hover
+      color: #fff
+
+.transport-companes
+  padding-top: 98px
+  &__title
+    +gil5
+    font-size: 38px
+    line-height: 46px
+    margin-bottom: 50px
+  &__wrap
+    position: relative
+  &__swiper
+    padding: 20px 10px
+    margin: -20px -10px
+    &-arrows
+      position: absolute
+      max-width: 100vw
+      justify-content: space-between
+      top: 50%
+      left: 50%
+      height: 0
+      width: calc(100% + 140px)
+      transform: translateX(-50%)
+      z-index: 1
+    &-arrow
+      position: absolute
+      top: 0
+      width: 40px
+      height: 40px
+      display: flex
+      align-items: center
+      justify-content: center
+      color: #fff
+      border-radius: 50%
+      +linear-main-hover(#DF55AD, $prime)
+      &:first-child
+        left: 1rem
+        transform: translateY(-50%)
+        & svg
+          transform: rotate(90deg)
+      &:last-child
+        right: 1rem
+        transform: translateY(-50%) rotate(90deg)
+        & svg
+          transform: rotate(180deg)
+  &__slide
+    width: 190px
+    height: 190px
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.08)
+    border-radius: 20px
+    background-size: calc(100% - 40px) auto
+    background-position: center
+    background-repeat: no-repeat
+  &__arrow
+    display: block
+    transform: rotate(-90deg)
+    flex-shrink: 0
+
+@media screen and ( max-width: 1399px )
+
+  .transport-companes
+    &__swiper
+      padding-bottom: 20px
+
+@media screen and ( max-width: 991px )
+  .delivery
+    padding-top: 24px
+    &__list
+      gap: 30px
+    &__item
+      padding: 16px
+      &-title
+        font-size: 20px
+        margin-bottom: 16px
+    &__container
+      grid-template-columns: 1fr
+    &__card
+      gap: 7px
+      padding: 21px 76px 35px
+      ._russia &
+        gap: 32px
+        padding: 35px 76px 20px
+      ._ekt &
+        gap: 32px
+        padding: 18px 76px 35px
+      &-text
+        font-size: 20px
+
+  .transport-companes
+    padding-top: 70px
+    &__swiper
+      &-arrows
+        z-index: -1
+        opacity: 0
+        left: 50%
+        right: 50%
+    &__scrollbar
+      position: absolute
+      background-color: #E7E7E7
+      border-radius: 7px
+      left: 10px
+      bottom: 0
+      height: 4px
+      width: 100%
+      max-width: calc( 100% - 20px)
+    & .swiper-scrollbar-drag
+      background-color: $prime
+
+@media screen and ( max-width: 767px )
+  .delivery
+    &, &._russia, &._ekt
+      & .title
+        margin-bottom: 14px
+    &._ekt
+      padding-bottom: 69px
+    &__list
+      gap: 11px
+      padding-top: 5px
+    &__container
+      gap: 27px
+    &__item
+      padding: 10px 15px 16px
+      grid-template-rows: 122px 1fr min-content
+      &-title
+        max-width: 85%
+        font-size: 16px
+        margin-bottom: 20px
+        line-height: 1.2
+    &__map
+      max-height: 100px
+    &__link
+      font-size: 14px
+      line-height: 17px
+      padding: 13.5px
+    &__subtitle-desk
+      margin-bottom: 0
+    &__subtitle, &__subtitle-desk
+      +gil4
+      line-height: 150%
+    &__text
+      margin-bottom: 25px
+      &-bold
+        +gil4
+      &-link
+        ._russia &, ._ekt &
+          color: $text
+
+      &-list-desk
+        padding: 0
+        margin-bottom: 25px
+      &-item-desk
+        list-style: none
+        line-height: 150%
+      &-item
+        line-height: revert
+        &::marker
+    &__card
+      ._russia &
+        gap: 0
+      ._ekt &
+        gap: 7px
+      &-map._russia
+        max-height: 87%
+      ._russia &-text
+        transform: translateY(-7px)
+      &-map._ekt
+        max-height: 82%
+    &-price
+      padding-top: 60px
+
+  .transport-companes
+    &__swiper
+      padding: 21.5px 10px
+      margin: -30px -10px
+    &__title
+      font-size: 26px
+      margin-bottom: 26px
+      line-height: 32px
+    &__slide
+      max-height: 250px
+      width: calc( 190 / 375 * 100vw)
+      height: calc( 190 / 375 * 100vw)
+
+@media screen and ( max-width: 576px )
+  .transport-companes
+    &__slide
+      max-height: 190px
+      width: calc( 172 / 375 * 100vw)
+      height: calc( 172 / 375 * 100vw)

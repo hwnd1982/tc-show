@@ -1,0 +1,223 @@
+.article
+  padding: 41px 0 100px
+  &__content
+    display: grid
+    grid-template-columns: 1fr 410px
+    gap: 60px
+    align-items: start
+  &__title
+    font-size: 32px
+    line-height: 39px
+    margin-bottom: 30px
+  &__subtitle
+    +gil5
+    font-size: 28px
+    margin-bottom: 33px
+  &__text
+    font-size: 18px
+    line-height: 150%
+    margin-bottom: 27px
+    &:last-child
+      margin-bottom: 0
+    &-block
+      margin-bottom: 40px
+      &:last-child
+        margin-bottom: 0
+  &__section
+    margin-bottom: 62px
+    &:last-child
+      margin-bottom: 0
+  &__info
+    display: flex
+    gap: 40px
+    margin-bottom: 53px
+    &-item
+      display: flex
+      gap: 14px
+      color: $text
+      line-height: 150%
+    &-name
+      color: #9D9D9D
+  &__img
+    display: block
+    object-fit: cover
+    height: 545px
+    border-radius: 20px
+    width: 100%
+  &__figure
+    margin-bottom: 38px
+    &:last-child
+      margin-bottom: 0
+  &__figcaption
+    line-height: 150%
+    padding-top: 21px
+  &__video-caption
+    line-height: 150%
+    padding-top: 16px
+  &__tools
+    display: flex
+    align-items: center
+    gap: 34px
+    margin-top: -21px
+  &__back
+    position: relative
+    display: block
+    align-self: center
+    position: relative
+    padding: 17.5px 29.5px
+    +gil5
+    line-height: 19px
+    text-align: center
+    color: $prime
+    background-color: #fff
+    border-radius: 34px
+    flex-basis: 186px
+    flex-shrink: 0
+    transition: .4s
+    &::after
+      position: absolute
+      content: ''
+      inset: -1px
+      border-radius: 35px
+      z-index: -1
+      background-image: $linear-main
+      background-size: 275%
+      background-position: 100%
+      animation: linear-transform-fadeOut 0.4s ease-in-out forwards
+    &:hover
+      color: $prime
+      &::after
+        background-color: $prime
+        background-position: 0
+        animation: linear-transform-fadeIn 0.4s ease-in-out forwards
+  &__share
+    display: flex
+    align-items: center
+    gap: 14px
+    &-text
+      +gil5
+      line-height: 19px
+    &-link
+      border-radius: 50%
+      &._vk
+        background-color: #4169E1
+      &._whatsapp
+        background-color: #29A71A
+      &._copy
+        background-color: #9D9D9D
+      &__share-icon
+
+.articles-aside-swiper
+  position: relative
+  padding-top: 4px
+  & .swiper-main
+    max-height: 1648px
+    padding-bottom: 2px
+  &__title
+    +gil5
+    font-size: 28px
+    margin-bottom: 23px
+
+@media screen and ( max-width: 1399px )
+  .article
+    &__content
+      grid-template-columns: 1fr 350px
+    &__img
+      height: 463px
+
+  .articles-aside-swiper
+    & .swiper-main
+      max-height: 1713px
+
+@media screen and ( max-width: 1199px )
+  .article
+    &__content
+      grid-template-columns: 1fr 290px
+    &__img
+      height: 384px
+
+  .articles-aside-swiper
+    & .swiper-main
+      max-height: 1648px
+
+@media screen and ( max-width: 991px )
+  .article
+    &__content
+      grid-template-columns: 1fr 254px
+      gap: 30px
+    &__img
+      height: 276px
+    &__title
+      font-size: 26px
+      line-height: 32px
+      margin-bottom: 19px
+    &__text
+      font-size: 16px
+      margin-bottom: 24px
+      &-block
+        margin-bottom: 24px
+    &__subtitle
+      font-size: 22px
+      line-height: 26px
+      margin-bottom: 18px
+    &__section
+      margin-bottom: 50px
+    &__figure
+      margin-bottom: 24px
+    &__figcaption
+      font-size: 14px
+      padding-top: 10px
+      & p
+        font-size: 14px
+    &__video-caption
+      font-size: 14px
+      padding-top: 12px
+    &__info
+      flex-direction: column
+      gap: 12px
+      margin-bottom: 24px
+      &-text
+        font-size: 14px
+
+  .articles-aside-swiper
+    & .swiper-main
+      max-height: 1048px
+    &__title
+      +gil6
+      font-size: 26px
+      line-height: 32px
+      margin-bottom: 30px
+
+@media screen and ( max-width: 767px )
+  .article
+    padding: 24px 0 86px
+    &__content
+      grid-template-columns: 100%
+      gap: 63px
+    &__img
+      height: 345px
+    &__back
+      padding: 12px 29.5px
+      flex-basis: 140px
+    &__tools
+      gap: 40px
+    &__share
+      flex-wrap: wrap
+      gap: 5px 8px
+      &-text
+        font-size: 12px
+        line-height: 14px
+        flex-basis: 100%
+      &-icon
+        width: 24px
+        height: 24px
+
+  .articles-aside-swiper
+    margin: 0 0 -15px
+    & .swiper-main
+      padding: 0 0 15px
+
+@media screen and ( max-width: 576px )
+  .article
+    &__img
+      height: calc(236 / 376 * 100vw)

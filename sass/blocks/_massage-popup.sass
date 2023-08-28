@@ -1,0 +1,67 @@
+.massage-popup
+  padding-top: 20px
+  .cart &
+    padding-top: 0
+    &__container
+      padding-top: 26px
+  &__container
+    position: relative
+    padding: 25px
+    background-color: #F5F5F5
+    border-radius: 20px
+  &__title
+    +gil5
+    font-size: 16px
+    line-height: 150%
+    margin-bottom: 5px
+  &__text
+    line-height: 150%
+    &-attention, &-bold
+      +gil5
+    &-attention
+      color: $prime
+      margin-right: 4px
+  &__link
+    line-height: 150%
+    color: $prime
+    transition: .4s
+    &:hover
+      color: $text
+  &__close
+    position: absolute
+    top: 11px
+    right: 17px
+    color: #9D9D9D
+    transition: .4s
+    &._center
+      top: 50%
+      right: 31px
+      transform: translateY(-50%)
+    &:hover
+      color: $text
+    &-icon
+
+@media screen and ( max-width: 991px )
+  .massage-popup
+    .cart &
+      &__container
+        padding: 18px 18px 18px
+      &__close
+        &._center
+          top: 12px
+          right: 18px
+          transform: none
+      &__text
+        &-attention
+          display: block
+          margin-right: 0
+          margin-bottom: 4px
+
+@media screen and ( max-width: 767px )
+  .massage-popup
+    padding-top: 1px
+    &__container
+      padding: 18px
+      border-radius: 12px
+    &__title
+      margin-bottom: 3px

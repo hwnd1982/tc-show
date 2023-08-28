@@ -1,0 +1,21 @@
+.social
+  display: flex
+  gap: 10px
+  &__icon
+    border-radius: 50%
+    &._vk
+      +linear-main-hover(#DF55AD, #4169E1)
+      background-size: 350%
+    &._whatsapp
+      +linear-main-hover(#DF55AD, #29A71A)
+      background-size: 350%
+
+@media screen and ( max-width: 991px )
+  .social
+    .contacts &
+      &__icon
+        width: 34px
+        height: 34px
+    &__icon
+      width: 28px
+      height: 28px

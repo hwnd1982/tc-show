@@ -1,0 +1,305 @@
+.payment
+  padding: 40px 0 50px
+  &__title
+    margin-bottom: 31px
+  &__text
+    line-height: 150%
+    margin-bottom: 24px
+    &:last-child
+      margin-bottom: 0
+    &-block
+      margin-bottom: 50px
+  &__tables
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 70px
+  &__table
+    position: relative
+    width: 100%
+    z-index: 1
+    margin-bottom: 25px
+    &::before
+      content: ''
+      position: absolute
+      z-index: -1
+      border-radius: 20px
+      inset: 0
+      border-radius: 20px
+      background-image: $linear-main
+      background-size: 350%
+      background-position: 100%
+    &-title
+      +gil5
+      font-size: 24px
+      line-height: 28px
+      margin-bottom: 30px
+  &__row, &__head-row
+    justify-content: space-between
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 1px
+    margin: 0 1px 1px
+    overflow: hidden
+  &__row
+    &:last-child
+      border-radius: 0 0 19px 19px
+  &__body
+    &>:nth-child(n + 4)
+      height: 0
+      margin-bottom: 0px
+    &>:nth-child(3)
+      border-radius: 0 0 19px 19px
+    ._all &
+      &>:nth-child(n)
+        height: 100%
+        margin-bottom: 1px
+      &>:nth-child(3)
+        transition: .0s
+        border-radius: 0
+  &__head
+    &-row
+      border-radius: 19px 19px 0 0
+      margin-top: 1px
+    &-cell
+      flex-shrink: 0
+      padding: 22px 22px 22px 33px
+      +gil5
+      font-size: 18px
+      background-color: #fff
+      text-align: center
+  &__cell
+    flex-shrink: 0
+    padding: 18px 22px 16px
+    background-color: #fff
+  &__show
+    position: relative
+    display: grid
+    grid-template-columns: 173px min-content
+    align-items: center
+    justify-items: start
+    +gil5
+    font-size: 16px
+    line-height: 19px
+    z-index: 2
+    padding: 17px 26px
+    color: $prime
+    transition: .4s
+    &::after
+      content: ''
+      position: absolute
+      border-radius: 50px
+      inset: 1px
+      background-color: #fff
+      z-index: -1
+    &::before
+      content: ''
+      border-radius: 51px
+      position: absolute
+      inset: 0
+      background-color: $prime
+      background-image: $linear-main
+      background-size: 300%
+      background-position: 100%
+      transition: 0.4s
+      z-index: -1
+    &:hover, &:focus
+      &::before
+        background-position: 0
+
+    &-all, &-part
+      grid-column: 1
+      grid-row: 1
+      transition: .4s
+      &-all
+        transform: translateY(0)
+    &-part
+      opacity: 0
+      transform: translateY(100%)
+    &-arrow
+      transition: .4s
+    ._all + &
+      grid-template-columns: 160px min-content
+    ._all + & &
+      &-all
+        opacity: 0
+        transform: translateY(-100%)
+      &-part
+        opacity: 1
+        transform: translateY(0)
+      &-arrow
+        transform: rotate(180deg)
+
+.payment-info
+  padding: 50px 0
+  &__container
+  &__title
+    margin-bottom: 30px
+  &__text
+    line-height: 150%
+    margin-bottom: 24px
+    &:last-child
+      margin-bottom: 0
+  &__subtitle
+    line-height: 150%
+    +gil5
+
+.payment-methods
+  padding: 50px 0
+  &__container
+    display: grid
+    grid-template-columns: 1fr 520px
+    gap: 30px
+    align-items: center
+  &__title
+    margin-bottom: 30px
+  &__text
+    line-height: 150%
+    margin-bottom: 24px
+  &__list
+    padding-left: 23px
+    max-width: 630px
+    margin-bottom: 0
+    &-caption
+      +gil5
+      line-height: 150%
+  &__item
+    line-height: 150%
+
+.payment-system
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 44px 38px 30px
+  z-index: 1
+  &::before, &::after
+    content: ''
+    position: absolute
+    z-index: -1
+  &::before
+    inset: 0
+    border-radius: 20px
+    background-image: $linear-default
+  &::after
+    inset: 1px
+    border-radius: 19px
+    background-color: #fff
+  &__title
+    +gil6
+    font-size: 38px
+    line-height: 100%
+    +text-linear-border(#fff, 2.5px)
+    background-image: $linear-main
+    margin-bottom: 14px
+  &__logo
+    background-image: url(../img//payment-system/payment-system.png)
+    background-size: 132.1% 145.1%
+    background-repeat: no-repeat
+    background-position: 0 center
+    width: 100%
+    height: 120px
+    &-wrap
+
+.payment-returns
+  padding: 47px 0 100px
+  &__title
+    margin-bottom: 30px
+  &__list
+    padding-left: 22px
+    margin-bottom: 27px
+    &-caption
+      font-size: 16px
+      line-height: 150%
+      letter-spacing: -.03px
+  &__item
+    line-height: initial
+    list-style: disc
+    font-size: 16px
+    line-height: 150%
+    letter-spacing: -.03px
+    &::marker
+      font-size: 10px
+      line-height: 24px
+      vertical-align: middle
+  &__text
+    line-height: 150%
+
+@media screen and ( max-width: 1199px )
+  .payment-methods
+    &__container
+      grid-template-columns: 1fr 420px
+  .payment-system
+    &__title
+      font-size: 35px
+    &__logo
+      height: 93px
+
+@media screen and ( max-width: 991px )
+  .payment
+    &__tables
+      gap: 50px
+    &__head
+      &-cell
+        padding: 18px
+    &__cell
+      padding: 16px 18px 19.6px
+    &__table
+      margin-bottom: 18px
+    &__show
+      padding: 14.5px 20px
+
+  .payment-methods
+    &__container
+      grid-template-columns: 1fr
+
+  .payment-system
+    justify-self: center
+
+@media screen and ( max-width: 767px )
+  .payment
+    padding: 25px 0 25px
+    &__tables
+      grid-template-columns: 1fr
+    &__table
+      &-title
+        font-size: 22px
+        line-height: 26px
+        margin-bottom: 24px
+    &__head
+      &-cell
+        font-size: 16px
+    &__title
+      margin-bottom: 22px
+
+  .payment-info
+    padding: 44px 0 35px
+    &__title
+      margin-bottom: 22px
+
+  .payment-methods
+    padding: 35px 0 35px
+    &__container
+      gap: 23px
+    &__title
+      margin-bottom: 22px
+
+  .payment-system
+    padding: 30px 26px 22px
+    width: 355px
+    &::before
+      border-radius: 14px
+    &::after
+      border-radius: 13px
+    &__title
+      font-size: 26px
+      margin-bottom: 8px
+    &__logo
+      background-size: 132.1% 145.1%
+      height: 82px
+
+  .payment-returns
+    padding: 34px 0 69px
+    &__title
+      margin-bottom: 22px
+    &__list
+      padding-left: 24px

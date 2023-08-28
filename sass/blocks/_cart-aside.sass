@@ -1,0 +1,200 @@
+.cart-aside
+  position: sticky
+  top: 130px
+  background-color: #fff
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.08)
+  border-radius: 20px
+  .cart &
+    &__title
+      margin-bottom: 20px
+    &__total
+      margin-bottom: 28px
+  &__title
+    +gil5
+    font-size: 20px
+    line-height: 138%
+    margin-bottom: 19px
+  &__wrap
+    padding: 25px
+  &__list
+    display: grid
+    gap: 18px
+    border-bottom: 1px solid #D9D9D9
+    padding-bottom: 26px
+    margin-bottom: 23px
+    &::-webkit-scrollbar
+      width: 4px
+      border-radius: 7px
+      background-color: #E7E7E7
+    &::-webkit-scrollbar-thumb
+      border-radius: 7px
+      background-color: #E77D7B
+  &__item
+    min-height: 70px
+  &__total, &__total-goods, &__total-discount
+    display: flex
+    align-items: baseline
+    justify-content: space-between
+  &__total
+    +gil5
+    font-size: 22px
+  &__total-sum
+    +gil5
+    line-height: 1.2
+  &__total-goods
+    color: #6E6E6E
+    margin-bottom: 12px
+  &__total-discount
+    color: #29A71A
+    margin-bottom: 24px
+  &__item
+    display: flex
+    gap: 15px
+  &__img
+    height: 70px
+    width: 70px
+    border-radius: 10px
+  &__name
+    font-size: 12px
+    +text-line-overflow(3)
+    line-height: 141%
+  &__info
+    display: flex
+    flex-direction: column
+    gap: 9px
+    margin-right: 3px
+  &__cost
+    display: flex
+    align-items: baseline
+  &__number
+    display: flex
+    align-items: baseline
+    font-size: 14px
+    gap: 8px
+    margin-right: 6px
+    +gil5
+    &::after
+      content: 'x'
+  &__item
+    &-total
+      flex-grow: 1
+      +gil5
+      text-align: right
+      align-items: baseline
+      font-size: 14px
+      margin-right: -4px
+      letter-spacing: .15px
+  &__buttons
+    display: flex
+    justify-content: space-between
+    gap: 20px
+  &__button
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 18px
+    border-radius: 50px
+    max-width: 205px
+    flex-grow: 1
+    &._cart
+      padding: 17px
+      flex-shrink: 0
+      color: #fff
+      +gil6
+      line-height: 20px
+      +linear-main-hover(#DF55AD, $prime)
+    &._order
+      display: flex
+      +gil5
+      line-height: 19px
+      padding: 17.5px
+      color: $text
+      background-color: #fff
+      border-radius: 34px
+      transition: .4s
+      color: $prime
+      &::after
+        position: absolute
+        content: ''
+        inset: -1px
+        border-radius: 35px
+        z-index: -1
+        background-image: $linear-main
+        background-size: 275%
+        background-position: 100%
+        animation: linear-transform-fadeOut 0.4s ease-in-out forwards
+      &:hover
+        color: $prime
+        &::after
+          background-color: $prime
+          animation: linear-transform-fadeIn 0.4s ease-in-out forwards
+
+  &__price
+    display: flex
+    gap: 1px
+    justify-content: flex-end
+    align-items: baseline
+    white-space: nowrap
+    margin-right: 12px
+    &:last-child
+      margin-right: 0
+    &._new
+      color: #29A71A
+    &-value
+      font-size: 14px
+      +gil5
+    &-divider
+      +gil3
+      font-size: 14px
+      color: #9D9D9D
+    &-unit
+      font-size: 12px
+      color: #9D9D9D
+    & + &
+      text-decoration-line: line-through
+      color: #9D9D9D
+      gap: 0
+    & + & &
+      &-value, &-divider, &-unit
+        color: #9D9D9D
+        +gil4
+        font-size: 10px
+
+@media screen and ( max-width: 1200px )
+  .cart-aside
+    top: 175px
+
+@media screen and ( max-width: 767px )
+  .cart-aside
+    position: static
+    .cart &
+      &__total
+        margin-bottom: 22px
+        &-goods
+    .cart ._popup &
+      &__total
+        font-size: 16px
+        margin-bottom: 2px
+        &-goods
+          font-size: 12px
+          margin-bottom: 0
+
+    &__wrap
+      padding: 22px
+    &__img
+      height: 50px
+      width: 50px
+      border-radius: 5px
+    &__list
+      gap: 14px
+      padding-bottom: 12px
+      margin-bottom: 18px
+    &__info
+      gap: 8px
+    &__total, &__total-goods, &__total-discount
+      align-items: flex-end
+      &>:last-child
+        line-height: 1.1
+    &__total-discount
+      margin-bottom: 16px

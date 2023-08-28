@@ -1,0 +1,331 @@
+.hero
+  overflow: hidden
+  padding: 60px 0 50px
+  &__container
+    display: grid
+    grid-template-columns: 500px 1fr
+  &__wrap
+    position: relative
+    overflow: hidden
+    padding: 0 20px 6px 17px
+    margin: 0 -20px -6px 3px
+  &__swiper
+    max-width: 100%
+    padding: 2px 3px 6px
+    margin: 0 0 -6px
+    border-radius: 20px 0 0 20px
+    &-arrows
+      display: flex
+      justify-content: space-between
+      position: absolute
+      top: 50%
+      left: 0
+      right: 0
+      transform: translateY(-50%)
+      z-index: 1
+    &-arrow
+      display: flex
+      align-items: center
+      justify-content: center
+      color: #fff
+      border-radius: 50%
+      +linear-main-hover(#DF55AD, $prime)
+      &:first-child
+        padding: 13px 14px 13px 12px
+        & svg
+          transform: rotate(90deg)
+      &:last-child
+        padding: 15px 13px 17px
+        transform: rotate(90deg)
+        & svg
+          transform: rotate(180deg)
+  &__slide
+    width: 654px
+    margin-right: 32px
+  &__arrow
+    display: block
+    transform: rotate(-90deg)
+    flex-shrink: 0
+  &__info
+    max-width: 425px
+  &__title
+    +gil6
+    margin-bottom: 20px
+    &-store
+      display: block
+      margin-bottom: -2px
+      font-size: 48px
+      line-height: 55px
+      background-image: $linear-main
+      +text-linear
+    &-holiday
+      font-size: 38px
+      line-height: 38px
+      color: $text
+  &__text
+    line-height: 150%
+    margin-bottom: 24px
+  &__min-price
+    +gil5
+  &__divider
+    display: flex
+    align-items: center
+    padding-top: 14px
+    &::after
+      content: ''
+      flex-shrink: 0
+      display: inline-block
+      height: 52px
+      width: 2px
+      background-image: $linear-main
+      order: -1
+      border-radius: 7px
+      margin-right: 20px
+      background-size: 55px
+      background-position: 100%
+    & :first-child
+      flex-shrink: 0
+      margin-right: 30px
+      order: -1
+  &__catalog-btn
+    display: block
+    padding: 16px 24.5px
+    +gil6
+    line-height: 20px
+    border-radius: 34px
+    color: #fff
+    max-width: 190px
+    &._main
+      color: #fff
+      +linear-main-hover(#DF55AD, $prime)
+      &:hover
+        color: #fff
+
+    ._lightpink &
+      transition: .4s
+      background-color: #FF8295
+      &:hover
+        color: #fff
+        background-color: #E77D7B
+    ._turquoise &
+      transition: .4s
+      background-color: #0AA797
+      &:hover
+        color: #fff
+        background-color: #E77D7B
+  &__advantage
+    grid-column: span 2
+
+.slide
+  position: relative
+  padding: 41px 44px 44px
+  height: 355px
+  border-radius: 20px
+  overflow: hidden
+  z-index: 1
+  transition: 0.4s
+  &._lightpink
+    background-color: #FFB7C3
+  &._turquoise
+    background-color: #65C7BD
+  &__img
+    display: block
+    height: 102%
+    width: 101%
+    max-width: 101%
+    object-fit: cover
+    object-position: center right
+    &-wrap
+      position: absolute
+      inset: 0
+      border-radius: 20px
+      z-index: -1
+  &__title
+    max-width: 64%
+    +gil7
+    font-size: 32px
+    line-height: 40px
+    margin-bottom: 14px
+    color: #fff
+  &__text
+    max-width: calc(311 / 567 * 100%)
+    +gil5
+    font-size: 20px
+    line-height: 24px
+    margin-bottom: 26px
+    color: #fff
+
+@media screen and ( max-width: 1399px )
+  .slide
+    &__title
+      max-width: 69%
+      font-size: 30px
+    &__text
+      font-size: 18px
+      margin-bottom: 31px
+
+@media screen and ( max-width: 1199px )
+  .hero
+    padding: 50px 0
+    &__container
+      grid-template-columns: 100%
+    &__info
+      display: flex
+      flex-wrap: wrap
+      max-width: 100%
+      gap: 20px
+      justify-content: space-between
+      margin-bottom: 40px
+    &__divider
+      padding-top: 0
+      flex-basis: 49%
+      align-self: self-start
+    &__title
+      order: -1
+      margin: 0
+      flex-basis: 48%
+    &__text
+      margin: 0
+    &__wrap
+      margin: 0 -20px -6px
+    &__advantage
+      grid-column: auto
+
+  .slide
+    &__text
+      max-width: 45%
+
+@media screen and ( max-width: 991px )
+  .hero
+    &__wrap
+      overflow: visible
+    &__title
+      flex-basis: 65%
+    &__text
+      display: none
+    &__divider
+      padding: 0
+      flex-basis: 60%
+      flex-direction: row
+      &::after
+        margin-right: 20px
+      & :first-child
+        margin-right: 18px
+
+@media screen and ( max-width: 991px )
+  .hero
+    padding: 38px 0 19px
+    & .swiper
+      overflow: visible
+    &__info
+      margin-bottom: 40px
+      gap: 32px
+    &__title
+      flex-basis: 100%
+      &-store
+        font-size: 48px
+        line-height: 44px
+        line-height: 55px
+      &-holiday
+        font-size: 38px
+        line-height: 1
+    &__text
+      display: none
+    &__swiper
+      padding: 0
+      margin: 0
+      border-radius: 10px 0 0 10px
+      &-arrows
+        display: none
+    &__wrap
+      padding: 0
+      margin: 0
+    &__divider
+      flex-basis: auto
+      &::after
+        flex-shrink: 0
+        margin-right: 18px
+    &__catalog-btn
+      &._main
+        padding: 16px 19.5px
+        margin-right: 18px
+    &__min-price
+      font-size: 12px
+      line-height: 138%
+      max-width: 150px
+    &__dot
+      display: block
+      width: 6px
+      height: 6px
+      border-radius: 50%
+      background-color: #F3BEBD
+      flex-shrink: 0
+      transition: .4s
+      cursor: pointer
+      &:hover
+        background-color: $prime
+      &._active
+        &-main
+          background-color: #E77D7B
+          transform: scale(calc(14 / 6))
+        &-next, &-prev
+          transform: scale(calc(10 / 6))
+    &__pagination
+      &.swiper-pagination-horizontal
+        &.swiper-pagination-bullets
+          &.swiper-pagination-bullets-dynamic
+            position: static
+            display: flex
+            align-items: center
+            justify-content: center
+            transform: none
+            padding-top: 18px
+            gap: 14.5px
+            min-width: 100%
+            min-height: 33px
+
+  .slide
+    padding: 23.5px
+    &.swiper-slide-active
+      box-shadow: none
+    &::after
+      content: none
+
+@media screen and ( max-width: 576px )
+  .hero
+    &__title
+      flex-basis: 33.6em
+      &-store
+        font-size: 38px
+        line-height: 44px
+      &-holiday
+        font-size: 30px
+        line-height: 1
+    &__catalog-btn
+      ._lightpink &, ._turquoise &
+        padding: .867em 1.299em
+        font-size: .867176em
+        line-height: 1.25
+        width: max-content
+
+  .slide
+    height: calc(192 / 375 * 100vw)
+    border-radius: 10px
+    &__info
+      font-size: calc(10 / 375 * 100vw)
+    &__img
+      &-wrap
+        border-radius: 10px
+    &.swiper-slide-active
+      box-shadow: none
+    &::after
+      content: none
+    &__title
+      font-size: 1.73435em
+      line-height: 1.25
+      margin-bottom: 0.893em
+    &__text
+      font-size: 1.08397em
+      line-height: 1.2
+      margin-bottom: 1.355em
+      max-width: 50%

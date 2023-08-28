@@ -1,0 +1,262 @@
+.header
+  position: sticky
+  left: 0
+  right: 0
+  top: -38px
+  z-index: 99
+  background-color: #fff
+  transition: .4s
+  -webkit-transform: translateZ(10px)
+  &::after
+    content: ''
+    position: absolute
+    inset: 0
+    background-color: #fff
+    z-index: -1
+  &._scroll
+    border-bottom: 1px solid #F0F0F0
+  &._last
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.08)
+  &-top
+    display: grid
+    align-items: center
+    grid-template-columns: 354fr 195fr 653fr 127fr
+    grid-template-areas: 'address time nav social'
+    padding: 10px 0 3px
+    overflow: hidden
+    transition: .4s
+    &__info
+      font-size: 14px
+      letter-spacing: -.05px
+      &_type
+        &_address
+          grid-area: address
+        &_time
+          grid-area: time
+    &__nav
+      grid-area: nav
+    &__icon
+      margin-right: 5px
+    &__list
+      display: flex
+      justify-content: end
+      gap: 36.5px
+    &__link
+      font-size: 14px
+      color: $text
+      white-space: nowrap
+      transition: .4s
+      &:hover
+        color: $prime
+    &__social
+      grid-area: social
+      justify-content: end
+  &-main
+    position: relative
+    display: grid
+    grid-template-areas: 'logo catalog search call tools'
+    grid-template-columns: 179px 204px 1fr 166px 304px
+    align-items: center
+    padding: 10px 0 11px
+    transition: .4s
+    z-index: 5
+    &__logo
+      grid-area: logo
+      flex-shrink: 0
+      & img
+        transition: .4s
+        width: 142px
+        height: 88px
+        object-fit: cover
+    &__toolbar
+      grid-area: tools
+      &.toolbar
+        display: flex
+        justify-content: flex-end
+    &__catalog-btn
+      position: relative
+      display: flex
+      grid-area: catalog
+      align-items: center
+      padding: 10px 21px 10px 15px
+      margin-right: 12px
+      +gil6
+      font-size: 15px
+      line-height: 18px
+      white-space: nowrap
+      color: #fff
+      border-radius: 34px
+      border: none
+      z-index: 1
+      overflow: hidden
+      +linear-main-hover(#DF55AD, $prime)
+      &::after
+        content: ''
+        position: absolute
+        inset: 0
+        z-index: -1
+      &._active
+        animation: linear-transform-fadeIn 0.4s ease-in-out forwards
+        &::after
+          background-color: #E77D7B
+      &._active &-close
+        opacity: 1
+      &._active &-open
+        opacity: 0
+    &__search
+      grid-area: search
+      margin-right: 30px
+    &__call
+      display: flex
+      width: max-content
+      justify-self: end
+      grid-area: call
+      flex-direction: column
+      align-items: center
+      line-height: 27px
+      &-btn
+        padding: 0
+        line-height: 17px
+        +gil3
+        font-size: 13px
+        background-color: transparent
+        border: none
+        transition: .4s
+        color: $text
+        &:hover
+          color: $prime
+    &__menu
+      &-btn
+        display: none
+        grid-area: tools
+        justify-self: end
+        border: none
+        background-color: transparent
+        padding: 0
+        margin-right: -4px
+  ._scroll &-main
+    grid-template-columns: 134px 204px 1fr 166px 304px
+    padding: 18px 0
+    &__logo
+      & img
+        width: 97px
+        height: 60px
+  &-down
+    padding: 19px 0 18px
+    background-color: #F9F8F6
+    z-index: 1
+    transition: .4s
+    overflow: hidden
+    &__list
+      display: flex
+      flex-wrap: wrap
+      gap: 7px 20px
+      justify-content: space-between
+    &__link
+      position: relative
+      +gil4
+      color: $text
+      white-space: nowrap
+      transition: .4s
+      &:hover
+        color: $prime
+  ._scroll &-down
+    height: 0
+    padding: 0
+
+@media screen and ( max-width: 1399px )
+  .header
+    &-top
+      grid-template-columns: 410fr 210fr 650fr 100fr
+      &__list
+        gap: 20px
+
+    &-main
+      &__logo
+        & img
+          width: 97px
+          height: 60px
+
+    &-main, ._scroll &-main
+      grid-template-columns: 134px 204px 1fr 166px 254px
+
+    &-down
+      &__link
+        font-size: 14px
+
+@media screen and ( max-width: 1199px )
+  .header
+    &-main
+      grid-template-areas: 'logo catalog search call tools'
+      &__catalog-btn, &__search
+        margin-right: 0
+      &__call
+        justify-content: flex-end
+        &-btn
+          font-size: 11px
+          line-height: 138%
+          padding-top: 5px
+
+    &-main, ._scroll &-main
+      grid-template-columns: 97px 192px 1fr 140px 226px
+      column-gap: 14px
+    &-top
+      grid-template-columns: 410fr 250fr 570fr 100fr
+      &__info
+        font-size: 12px
+      &__link
+        font-size: 12px
+    &-down
+      &__link
+        font-size: 12px
+
+@media screen and ( max-width: 991px )
+  .header
+    top: -1px
+    -webkit-transform: none
+    &-top
+      display: none
+
+@media screen and ( max-width: 991px )
+  .header
+    height: 60px
+    overflow: hidden auto
+    -ms-overflow-style: none
+    scrollbar-width: none
+    border-bottom: 1px solid #F5F5F5
+    &::-webkit-scrollbar
+      display: none
+    &-main
+      grid-template-areas: 'logo tools'
+      padding: 10px 0
+      &__logo
+        & img
+          width: 64px
+          height: 40px
+      &__catalog-btn, &__search, &__call
+        display: none
+      &__toolbar
+        &.toolbar
+          display: none
+      &__menu
+        &-btn
+          display: block
+          &-close
+            transition: .4s
+            opacity: 0
+          &-open
+            transition: .4s
+            opacity: 1
+          &._active &-close
+            opacity: 1
+          &._active &-open
+            opacity: 0
+    &-down
+      display: none
+    &-main, ._scroll &-main
+      grid-template-columns: 64px 1fr
+      padding: 10px 0
+      &__logo
+        & img
+          width: 64px
+          height: 40px

@@ -1,0 +1,34 @@
+@mixin text-linear
+  background-size: 275%
+  // background-position-x: 100%
+  background-position: 100%
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+  text-fill-color: transparent
+
+@mixin text-linear-border($color, $weight)
+  +text-linear
+  -webkit-text-stroke: $weight transparent
+  color: $color
+  -webkit-text-fill-color: $color
+
+@mixin linear-main-hover($color, $hover)
+  transition: .4s
+  background-color: $color
+  background-image: $linear-main
+  background-size: 275%
+  // background-position-x: 100%
+  background-position: 100%
+  animation: linear-transform-fadeOut 0.4s ease-in-out forwards
+  &:hover
+    background-color: $hover
+    // background-position-x: 0
+    background-position: 0
+    animation: linear-transform-fadeIn 0.4s ease-in-out forwards
+
+@mixin text-line-overflow($count)
+  overflow: hidden
+  display: -webkit-box
+  -webkit-line-clamp: $count
+  -webkit-box-orient: vertical

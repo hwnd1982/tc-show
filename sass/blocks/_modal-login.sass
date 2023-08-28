@@ -1,0 +1,49 @@
+.modal-login
+  display: grid
+  grid-template-columns: repeat(2, 430px)
+  &__content
+    width: 100%
+    height: fit-content
+    align-self: center
+    padding: 113px 50px
+  &__form
+    display: flex
+    flex-direction: column
+    gap: 20px  
+  &__img
+    display: block
+    background-image: url(../img/modals/login.png)
+    background-size: cover
+  &__submit
+    padding-top: 25px
+    &-info
+      display: flex
+      flex-direction: column
+      gap: 12px
+  &__submit-info
+    color: #fff
+    font-size: 14px
+    line-height: calc(19 / 14)
+    &-link
+      font-size: 14px
+      color: #fff
+      transition: .4s
+      &:hover
+        color: $prime
+
+@media screen and ( max-width: 991px )
+  .modal-login
+    display: grid
+    grid-template-columns: 430px
+    &__img
+      display: none  
+
+@media screen and ( max-width: 576px )
+  .modal-login
+    width: 100%
+    height: 100%  
+    display: flex
+    justify-content: center
+    border-radius: 0
+    &__content
+      padding: 50px 15px 

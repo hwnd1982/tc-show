@@ -1,0 +1,125 @@
+.work-steps
+  padding: 50px 0
+  &__title
+    margin-bottom: 52px
+  &__list
+    display: flex
+    align-items: center
+    counter-reset: step
+    list-style: none
+    padding: 0
+    margin: 0
+    gap: 18px
+    &::before, &::after
+      content: ''
+      padding: 14.5px 0
+      width: 10%
+      background-size: contain
+      background-repeat: no-repeat
+      background-position: center
+    &::before
+      order: 0
+      transform: rotatex(180deg)
+      -webkit-transform: translateZ(5px) rotatex(180deg)
+      background-image: url(../img/icons/next-step.svg)
+    &::after
+      order: 1
+      content: ''
+      background-image: url(../img/icons/next-step.svg)
+  &__step
+    position: relative
+    padding: 29px 30px 31px
+    align-self: stretch
+    flex-grow: 1
+    flex-shrink: 0
+    max-width: calc(78.8% / 3)
+    background-color: #fff
+    z-index: 1
+    &::before, &::after
+      content: ''
+      position: absolute
+      z-index: -1
+    &::before
+      inset: 0px
+      background-image: $linear-main
+      background-size: 300%
+      background-position: 100%
+      border-radius: 20.5px
+    &::after
+      inset: 1px
+      background-color: #fff
+      border-radius: 20px
+    &:first-child
+      order: -1
+    &:last-child
+      order: 2
+    &-decoration
+      &::before
+        display: block
+        content: counter(step)' шаг'
+        counter-increment: step
+        padding: 0 0 0 3px
+        margin: 0 0 16px -3px
+        +gil6
+        font-size: 48px
+        line-height: 100%
+        +text-linear-border(#fff, 4px)
+        background-image: $linear-main
+    &-title
+      +gil5
+      font-size: 16px
+      line-height: 138%
+      margin-bottom: 12px
+  &__text
+    margin-bottom: 12px
+    font-size: 14px
+    &:last-child
+      margin-bottom: 0
+  &__link
+    color: $prime
+    translate: .4s
+    &:hover
+      color: #9D9D9D
+  &__time
+    display: block
+    color: #9D9D9D
+
+@media screen and ( max-width: 1199px )
+  .work-steps
+    &__step
+      padding: 30px
+
+@media screen and ( max-width: 991px )
+  .work-steps
+    &__list
+      gap: 10px
+      justify-content: space-between
+      &::before, &::after
+        content: none
+    &__step
+      max-width: calc(95% / 3)
+      padding: 18px
+      &-decoration
+        &::before
+          font-size: 38px
+          margin-bottom: 18px
+
+@media screen and ( max-width: 767px )
+  .work-steps
+    padding: 67px 0 16px
+    .team + &
+      padding-top: 39px
+    .contacts + &
+      padding-bottom: 24px
+    &__title
+      margin-bottom: 27px
+    &__step
+      padding: 26px
+      max-width: 355px
+      align-self: auto
+      &:first-child
+        align-self: flex-start
+      &:last-child
+        align-self: flex-end
+    &__list
+      flex-direction: column

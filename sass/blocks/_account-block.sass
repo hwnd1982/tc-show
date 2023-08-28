@@ -1,0 +1,154 @@
+.account-block
+  padding: 50px 0 102px
+  flex-grow: 1
+  font-size: 16px
+  font-weight: 500
+  line-height: 138%
+  color: #141414
+  &__block-title
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background-color: #FFFFFF
+    z-index: 2
+  &__btns
+    display: flex
+    align-items: center
+    flex-grow: 1
+    justify-content: flex-end
+    gap: 16px
+  &__btn
+    padding: 17px
+    flex-shrink: 0
+    flex-basis: 139px
+    border-radius: 50px
+    text-align: center
+    z-index: 1
+    &._catalog, &._submit
+      line-height: 20px
+      +gil6
+      color: #fff
+      +linear-main-hover(#DF55AD, $prime)
+      &:hover
+        color: #fff
+    &._back
+      position: relative
+      +gil5
+      line-height: 19px
+      color: $prime
+      transition: .4s
+      &::after
+        content: ''
+        position: absolute
+        border-radius: 50px
+        inset: 1px
+        background-color: #fff
+        z-index: -1
+      &::before
+        content: ''
+        border-radius: 51px
+        position: absolute
+        inset: 0
+        background-color: $prime
+        background-image: $linear-main
+        background-size: 300%
+        background-position: 100%
+        transition: 0.4s
+        z-index: -1
+      &:hover, &:focus
+        color: $text
+        &::before
+          background-position: 0
+  &__title
+    +gil6
+    font-size: 38px
+    line-height: 47px
+  &__container
+    padding-top: 33px
+    display: grid
+    grid-auto-columns: 260px 1fr
+    grid-auto-flow: column
+  &__profile
+    margin-bottom: 40px
+  &__menu-desktop
+    position: sticky
+    top: 132px
+    height: min-content
+    max-width: 250px
+    padding-right: 50px
+  &__menu-list
+    display: flex
+    flex-direction: column
+    margin: 0 0 30px
+    padding: 0
+    list-style: none
+  &__menu-list
+    gap: 20px
+  &__menu-item
+    &:first-child._hidden
+      opacity: 0
+      margin-bottom: -10px
+      height: 0
+  &__menu-link
+    font-size: 20px
+    line-height: calc( 28 / 20 )
+    color: inherit
+    transition: .4s
+    &:hover
+      color: #E77D7B
+    &._active
+      pointer-events: none
+      color: #E77D7B
+  &__logout
+    color: #9D9D9D
+  &__pages
+    padding: 0 0 0 68px
+    margin: 0
+    list-style: none
+
+@media screen and ( max-width: 1199px )
+  .account-block
+    &__container
+      grid-auto-columns: 220px 1fr
+    &__menu-desktop
+      top: 166px
+      padding-right: 30px
+
+@media screen and ( max-width: 991px )
+  .account-block
+    &__container
+      grid-auto-columns: 1fr
+    &__menu-desktop
+      display: none
+    &__pages
+      border: none
+      padding-left: 0
+    &__btn
+      padding: 14px
+
+@media screen and ( max-width: 767px )
+  .account-block
+    padding: 24px 0 71px
+    &__container
+      grid-auto-flow: row
+    &__pages
+      padding-right: 0
+    &__title
+      font-size: 26px
+      line-height: calc( 32 / 26 )
+      margin-bottom: 4px
+
+@media screen and ( max-width: 576px )
+  .account-block
+    &__container
+      padding-top: 20px
+    &__block-title
+      flex-direction: column
+      gap: 24px
+      align-items: flex-start
+    &__btns
+      gap: 20px
+      width: 100%
+    &__btn
+      padding: 12px
+      flex-grow: 1

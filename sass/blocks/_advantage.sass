@@ -1,0 +1,103 @@
+.advantage
+  padding-top: 60px
+  &__list
+    display: flex
+    justify-content: space-between
+  &__item
+    position: relative
+    display: grid
+    grid-template-areas: 'icon title' 'icon text'
+    grid-template-columns: min-content 1fr
+    grid-template-rows: min-content 1fr
+    gap: 8px 19px
+    padding: 23px 21px 24px 23px
+    flex-basis: 23%
+    max-width: 300px
+    border-radius: 14px
+    align-items: start
+    z-index: 1
+    &::before, &::after
+      content: ''
+      position: absolute
+      border-radius: 14px
+      z-index: -1
+    &::after
+      inset: 0
+      background-color: #fff
+    &::before
+      inset: -1px
+      border-radius: 14.5px
+      background-image: linear-gradient(135.04deg, #DF55AD 0%, #E57582 28.46%, #ED9F5A 60.34%, #F1D872 100%)
+  &__title
+    +gil5
+    font-size: 16px
+    line-height: 138%
+    margin-bottom: 0
+  &__main-title
+    margin-bottom: 52px
+  &__text
+    grid-area: text
+    font-size: 14px
+  &__icon
+    grid-area: icon
+    align-self: center
+
+  .product &
+    padding-top: 26px
+    &__list
+      flex-direction: column
+      gap: 12px
+    &__item
+      padding: 16px
+      gap: 5px 18px
+    &__title
+      font-size: 14px
+    &__text
+      font-size: 12px
+    &__icon
+      width: 36px
+      height: 36px
+
+@media screen and ( max-width: 1399px )
+  .advantage
+    &__item
+      padding: 14px
+      gap: 6px 13px
+    &__icon
+      width: 40px
+      height: 40px
+
+@media screen and ( max-width: 1199px )
+  .advantage
+    &__item
+      grid-template-areas: 'icon title' 'text text'
+@media screen and ( max-width: 991px )
+  .advantage
+    &__list
+      flex-wrap: wrap
+      justify-content: center
+      gap: 24px
+    &__item
+      grid-template-areas: 'icon title' 'icon text'
+      flex-basis: 48%
+      padding: 18px
+      max-width: 320px
+    &__icon
+      width: 55px
+      height: 55px
+
+@media screen and ( max-width: 767px )
+  .advantage
+    display: none
+    .product &
+      display: flex
+      flex-direction: column
+      display: flex
+      padding-top: 0
+      &__list
+        gap: 11px
+        margin-top: -2px
+      &__item
+        max-width: none
+      &__text
+        min-height: 33px

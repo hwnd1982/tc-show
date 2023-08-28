@@ -1,0 +1,380 @@
+.cart
+  padding: 50px 0
+  &__content
+    display: grid
+    grid-template-columns: 1fr 410px
+    align-items: start
+    gap: 30px
+  &__main
+    display: flex
+    flex-direction: column
+    gap: 22px
+  &__tools
+    padding: 25px
+    &-wrap
+      position: relative
+      display: flex
+      flex-direction: column
+  &__aside
+    position: sticky
+    top: 125px
+    background-color: #fff
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.16)
+    border-radius: 20px
+    &._popup
+      display: none
+  &__checkout
+    padding: 17px
+    flex-shrink: 0
+    color: #fff
+    +gil6
+    line-height: 20px
+    +linear-main-hover(#DF55AD, $prime)
+    border-radius: 50px
+  &__list
+    &>:not(:last-child)
+      margin-bottom: 23px
+  &__item
+    display: grid
+    grid-template-columns: 1fr 156px
+    grid-template-rows: min-content 1fr min-content
+    gap: 14px 20px
+    grid-template-areas: 'info remove' 'info prices' 'info tools'
+    padding: 25px 25px 24px
+    background-color: #fff
+    box-shadow: 0px 2px 16px rgba(8, 8, 8, 0.08)
+    border-radius: 12px
+    &._deleted
+      grid-template-areas: none
+      grid-template-columns: 1fr min-content
+      grid-template-rows: auto
+      gap: 10px
+      justify-items: start
+    &-tools
+      grid-area: tools
+      display: flex
+      flex-wrap: wrap
+      gap: 14px 11px
+      justify-content: flex-end
+    &-total
+      font-size: 12px
+      color: #9D9D9D
+      &-value
+        padding-left: 3px
+        +gil6
+        font-size: 18px
+        color: $text
+  &__close
+    display: flex
+    align-items: flex-start
+    color: #9D9D9D
+    transition: .4s
+    &:hover
+      color: $text
+  &__restore
+    color: $prime
+    +gil5
+    line-height: 160%
+    transition: .4s
+    &:hover
+      color: $text
+  &__message
+    & span
+      +gil6
+  &__info
+    grid-area: info
+    display: grid
+    grid-template-columns: 170px 1fr
+    grid-template-rows: repeat(2, min-content) 1fr
+    grid-template-areas: 'img .' 'img .' 'img .'
+    gap: 12px 20px
+  &__img
+    grid-area: img
+    border-radius: 10px
+  &__top
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    &:first-child
+      flex-grow: 1
+  &__name
+    color: $text
+    transition: .4s
+    &:hover
+      color: $prime
+  &__labels
+    display: flex
+    gap: 8px
+  &__label
+    +gil5
+    padding: 3px 7px
+    font-size: 12px
+    line-height: 138%
+    border: 1px solid currentColor
+    border-radius: 20px
+    &._new, &._sale-5
+      color: #29A71A
+    &._sale
+      color: #E84724
+    &._sale-10
+      color: #B074EE
+    &._sale-15
+      color: #FF7800
+  &__prices
+    grid-area: prices
+    display: flex
+    flex-direction: column
+    gap: 4px
+    align-items: flex-end
+    justify-content: flex-end
+  &__price
+    display: flex
+    gap: 2px
+    justify-content: flex-end
+    align-items: baseline
+    line-height: 1.38
+    white-space: nowrap
+    &:not(:last-child)
+      color: #29A71A
+    &-value
+      font-size: 16px
+      +gil6
+    &-divider
+      +gil3
+      font-size: 16px
+      color: #9D9D9D
+    &-unit
+      font-size: 12px
+      color: #9D9D9D
+    & + &
+      text-decoration-line: line-through
+      color: #9D9D9D
+      gap: 0
+      order: -1
+    & + & &
+      &-value, &-divider, &-unit
+        color: #9D9D9D
+        +gil4
+        font-size: 12px
+  &__remove
+    color: #D9D9D9
+    position: relative
+    top: -3px
+    text-align: right
+    transition: .4s
+    &:hover
+      color: $prime
+  &__details
+    & :nth-child(n+4)
+      display: none
+    &>:not(:last-child)
+      margin-bottom: 4px
+  &__detail
+    display: flex
+    font-size: 13px
+    &-name
+      color: #9D9D9D
+      flex-basis: 36.5%
+  &__count
+    display: flex
+    justify-content: space-between
+    width: 100px
+
+    border: 1px solid #9D9D9D
+    border-radius: 34px
+    padding: 11px 20px
+    &-inc, &-dec
+      +gil5
+      flex-shrink: 0
+      width: 10px
+      line-height: 19px
+      color: #9D9D9D
+      transition: .4s
+      &:hover
+        color: $prime
+    &-input
+      display: block
+      border: none
+      background-color: transparent
+      padding: 0
+      width: 100%
+      line-height: 19px
+      +gil5
+      color: $text
+      text-align: center
+      &:disabled
+        opacity: 1
+  &__favorite
+    &-icon
+      transition: 0.4s
+      fill: #fff
+      stroke: #141414
+      ._checked &
+        fill: url(#linear-main)
+        stroke: url(#linear-main)
+    &-button
+      position: relative
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 44px
+      height: 44px
+      border-radius: 50%
+      margin-bottom: 0
+      order: 1
+      z-index: 1
+      &:after, &:before
+        position: absolute
+        content: ''
+        border-radius: 50%
+        z-index: -1
+      &:after
+        inset: 1px
+        background-color: #fff
+      &:before
+        inset: 0
+        background-color: #9D9D9D
+        background-image: $linear-main
+        background-size: 350%
+        background-position: 0
+        transition: .4s
+      &._checked
+        &:before
+          background-position: 100%
+    &-button:hover &-icon
+      fill: #E77D7B
+      stroke: #E77D7B
+    &-button:hover
+      &:before
+        background-color: #E77D7B
+
+@media screen and ( max-width: 1199px )
+  .cart
+    &__content
+      grid-template-columns: 1fr 338px
+    &__item
+      align-items: start
+      justify-items: start
+      gap: 14px
+      grid-template-columns: 177px 1fr min-content
+      grid-template-areas: 'info info remove' 'prices tools tools'
+      &-tools
+        width: 100%
+        align-items: flex-end
+        margin-top: -14px
+      &-total
+        font-size: 16px
+        flex-grow: 1
+    &__prices
+      align-items: flex-end
+      gap: 8px
+      flex-direction: row-reverse
+      justify-content: flex-end
+      align-self: end
+      width: 100%
+    &__price
+      &-value, &-divider
+        font-size: 18px
+        line-height: 1.223
+    &__name
+      font-size: 14px
+    &__label
+      font-size: 10px
+
+@media screen and ( max-width: 991px )
+  .cart
+    &__aside
+      top: 90px
+    &__content
+      grid-template-columns: 1fr 275px
+    &__info
+      align-items: start
+    &__main
+      gap: 14px
+    &__title
+      margin-bottom: 27px
+    &__tools
+      max-width: 540px
+      padding: 18px 22px 23px
+    &__prices
+      align-items: flex-start
+      gap: 0
+      flex-direction: column
+      width: 100%
+    &__list
+      &>:not(:last-child)
+        margin-bottom: 14.5px
+    &__item
+      padding: 18px 14px 14px
+      grid-template-columns: 1fr min-content
+      grid-template-areas: 'info remove' 'prices .' 'tools tools'
+      &._deleted
+        padding: 13px 14px 14px
+        gap: 7px
+      &-tools
+        align-items: center
+        margin-top: -6px
+      &-total
+        &-value
+          font-size: 20px
+    &__info
+      grid-template-columns: 78px 1fr
+      gap: 8px 14px
+      grid-template-rows: repeat(2, min-content) 1fr
+      grid-template-areas: 'img .' 'img .' 'details details'
+    &__details
+      padding-top: 6px
+      grid-area: details
+      &>:not(:last-child)
+        margin-bottom: 3px
+    &__detail
+      font-size: 12px
+      &-name
+        flex-basis: 31.5%
+    &__labels
+      height: min-content
+    &__label
+      font-size: 8px
+      padding: 2px 5px
+    &__name
+      min-height: 49px
+      font-size: 12px
+
+@media screen and ( max-width: 767px )
+  .cart
+    padding: 25px 0 19px
+    &__content
+      grid-template-columns: 1fr
+    &__aside
+      &._popup
+        display: block
+        position: fixed
+        -webkit-transform: translateZ(5px)
+        left: 0
+        right: 0
+        bottom: 0
+        top: auto
+        z-index: 55
+        box-shadow: 0px -12px 30px rgba(0, 0, 0, 0.08)
+        padding-bottom: 60px
+        transition: .4s
+        &._hidden, &._scroll-hidden
+          transform: translateY(100%)
+          -webkit-transform: translateZ(5px) translateY(100%)
+    ._popup &
+      &__tools
+        max-width: 540px
+        padding-top: 11px
+        padding-bottom: 10px
+        padding-right: 0.625rem
+        padding-left: 0.625rem
+        margin-right: auto
+        margin-left: auto
+        &-wrap
+          display: grid
+          grid-template-columns: 1fr 190px
+          grid-template-areas: '.checkout' '.checkout'
+          grid-auto-rows: min-content
+      &__checkout
+        grid-area: checkout
+        padding: 12px

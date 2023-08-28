@@ -1,0 +1,83 @@
+.modal-feedback
+  display: grid
+  grid-template-columns: 430px 790px
+  &__content
+    padding: 48px 50px
+    overflow: auto
+    &::-webkit-scrollbar
+      display: none
+  &__img
+    display: block
+    background-image: url(../img/modals/question.png)
+    background-size: cover
+  &__submit
+    padding-top: 25px
+  &__radio
+    position: absolute
+    top: 0
+    left: 0
+    height: 0
+    &::before, &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      height: 28px
+    &::before
+      width: 28px
+      background-color: #fff
+      border-radius: 50%
+    &::after
+      background-image: url(../img/icons/checked.svg)
+      background-repeat: no-repeat
+      background-position: 7px 9px
+      transition: .4s
+      width: 0
+    &:checked::after
+      width: 28px
+  &__fieldset
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    column-gap: 40px
+  &__form
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 20px 30px
+  &__two-column
+    grid-column: span 2
+
+@media screen and ( max-width: 1399px )
+  .modal-feedback
+    grid-template-columns: 790px
+    &__img
+      display: none
+
+@media screen and ( max-width: 991px )
+  .modal-feedback
+    width: 100%
+    height: 100%
+    border-radius: 0
+    grid-template-columns: 1fr
+    align-items: center
+
+@media screen and ( max-width: 767px )
+  .modal-feedback
+    &__content
+      padding: 73px 15px
+
+@media screen and ( max-width: 576px )
+  .modal-feedback
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    border-radius: 0
+    &__form
+      grid-template-columns: 1fr
+    &__two-column
+      grid-column: span 1
+    &__fieldset
+      column-gap: 26px
+    &__legend
+      margin-bottom: 7px

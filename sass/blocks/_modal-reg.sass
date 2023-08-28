@@ -1,0 +1,106 @@
+.modal-reg
+  display: grid
+  grid-template-columns: 430px 790px
+  &__content
+    padding: 50px
+    overflow: auto
+    &::-webkit-scrollbar
+      display: none
+  &__inputs
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 20px 30px
+    margin-bottom: 39px
+
+  &__checkbox-block
+    text-align: left
+    display: flex
+    gap: 11px
+    margin-bottom: 30px
+  &__checkbox-label
+    position: relative
+    flex-shrink: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 17px
+    width: 17px
+    border: 1px solid #fff
+    border-radius: 2px
+  &__checkbox
+    position: absolute
+    top: 0
+    left: 0
+    height: 0
+    &::before, &::after
+      content: ''
+      position: absolute
+      top: 2px
+      left: 2px
+      height: 11px
+      width: 11px
+      border-radius: 1px
+    &::before
+      background-color: #fff
+      border-radius: 1px
+    &::after
+      background-image: url(../img/icons/checked.svg)
+      background-repeat: no-repeat
+      background-size: 11px
+      background-position: 0 2px
+      transition: .4s
+      width: 0
+    &:checked::after
+      width: 11px
+
+  &__submit-info
+    color: #fff
+    font-size: 14px
+    line-height: calc(19 / 14)
+    &-link
+      font-size: 14px
+      color: #fff
+      transition: .4s
+      border-bottom: 1px solid currentColor
+      &:hover
+        color: $prime
+      &_without_border
+        border-bottom: none
+  &__img
+    display: block
+    background-image: url(../img/modals/reg.png)
+    background-size: cover
+
+@media screen and ( max-width: 1399px )
+  .modal-reg
+    grid-template-columns: 790px
+    &__img
+      display: none
+
+@media screen and ( max-width: 991px )
+  .modal-reg
+    width: 100%
+    height: 100%
+    border-radius: 0
+    grid-template-columns: 1fr
+    align-items: center
+    &__inputs
+      grid-template-columns: 1fr 1fr
+@media screen and ( max-width: 767px )
+  .modal-reg
+    &__content
+      padding: 50px 15px
+
+@media screen and ( max-width: 576px )
+  .modal-reg
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    border-radius: 0
+    &__inputs
+      grid-template-columns: 1fr
+    &__inputs
+      margin-bottom: 26px
+    &__checkbox-block
+      margin-bottom: 28px

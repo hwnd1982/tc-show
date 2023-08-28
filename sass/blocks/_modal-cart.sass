@@ -1,0 +1,91 @@
+.modal-cart
+  flex-basis: 450px
+  width: 450px
+  padding: 50px 30px 30px
+  text-align: center
+  background: #FFFFFF
+  box-shadow: 0px 0px 26px rgba(0, 0, 0, 0.16)
+  border-radius: 20px
+  position: absolute
+  opacity: 0
+  transform: translateY(-15%)
+  transition: .4s
+  &._show
+    position: relative
+    opacity: 1
+    transform: translateY(0)
+    transition-delay: .2s
+  &__title
+    max-width: 305px
+    margin: 0 auto
+    font-size: 20px
+    line-height: calc( 24 / 20)
+    font-weight: 500
+    +gil5
+    background-image: $linear-main
+    +text-linear
+    margin-bottom: 16px
+  &__text
+    line-height: calc( 26 / 16)
+    margin-bottom: 40px
+  &__btns
+    display: flex
+    align-items: center
+    flex-grow: 1
+    justify-content: space-evenly
+    gap: 18px
+  &__btn
+    padding: 17px
+    flex-basis: 186px
+    border-radius: 50px
+    text-align: center
+    z-index: 1
+    &._login
+      line-height: 20px
+      +gil6
+      color: #fff
+      +linear-main-hover(#DF55AD, $prime)
+      &:hover
+        color: #fff
+    &._reg
+      position: relative
+      +gil5
+      line-height: 19px
+      color: $prime
+      &::after
+        content: ''
+        position: absolute
+        border-radius: 50px
+        inset: 1px
+        background-color: #fff
+        z-index: -1
+      &::before
+        content: ''
+        border-radius: 51px
+        position: absolute
+        inset: 0
+        background-color: $prime
+        background-image: $linear-main
+        background-size: 300%
+        background-position: 100%
+        transition: 0.4s
+        z-index: -1
+      &:hover, &:focus
+        &::before
+          background-position: 0
+
+@media screen and ( max-width: 576px )
+  .modal-cart
+    padding: 43px 18px 18px
+    &__title
+      font-size: 22px
+      margin-bottom: 8px
+    &__text
+      max-width: 300px
+      margin: 0 auto
+      margin-bottom: 26px
+    &__btns
+      gap: 13px
+    &__btn
+      padding: 16px
+      flex-basis: 186px

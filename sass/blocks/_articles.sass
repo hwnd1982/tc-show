@@ -1,0 +1,44 @@
+.articles
+  padding: 51px 0 100px
+  &__container
+    padding-bottom: 50px
+  &__list
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr))
+    gap: 30px 29px
+  &__pagination
+    padding-top: 42px
+    margin-bottom: -46px
+
+.articles-swiper
+  position: relative
+
+@media screen and ( max-width: 1399px )
+  .articles
+    &__list
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+
+@media screen and ( max-width: 1199px )
+  .articles
+    &__list
+      gap: 14px
+
+@media screen and ( max-width: 991px )
+  .articles
+    &__list
+      grid-template-columns: repeat(auto-fill, minmax(172px, 1fr))
+
+@media screen and ( max-width: 767px )
+  .articles
+    padding-bottom: 66px
+    &__title
+      margin-bottom: 27px
+    &._news
+      padding-top: 24px
+    &__list
+      gap: 10px 11px
+    &__container
+      padding-bottom: 27px
+    &__pagination
+      padding-top: 24px
+      margin-bottom: -22px

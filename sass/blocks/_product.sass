@@ -1,0 +1,472 @@
+.product
+  padding: 40px 0 100px
+  &__container
+    display: grid
+    grid-template-columns: 506px 1fr 300px
+    grid-template-rows: min-content 1fr
+    align-items: start
+    gap: 30px 44px
+  &__imgs
+    grid-row: 1 / 3
+    padding-right: 6px
+    &-main
+      padding-bottom: 10px
+    &-thumbs
+      padding: 1px
+      margin: -1px
+      &-wrap
+        position: relative
+        padding: 0 35px
+  &__img
+    width: 500px
+    height: 500px
+    object-fit: cover
+    object-position: center
+    border-radius: 10px
+
+  &__thumb
+    border-radius: 9px
+    object-fit: cover
+    object-position: center
+    width: 100%
+    &-wrap
+      position: relative
+      display: flex
+      align-items: stretch
+      justify-content: center
+      border-radius: 10px
+      width: 78px
+      height: 78px
+      cursor: pointer
+      &::after
+        position: absolute
+        content: ''
+        inset: 0
+        border-radius: 10px
+        background-position: 0
+        background-size: 350%
+        background-image: $linear-main
+        z-index: -1
+        transition: .4s
+      &.swiper-slide-active
+        padding: 1px
+        &::after
+          background-position: 100%
+  &__arrows
+    position: absolute
+    display: flex
+    justify-content: space-between
+    top: 50%
+    left: 0
+    right: 0
+    height: 0
+    z-index: 1
+  &__arrow
+    position: relative
+    transform: translateY(-50%)
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 24px
+    height: 24px
+    border-radius: 50%
+    border: none
+    color: $prime
+    transition: .4s
+    ._prev &-icon
+      transform: rotate(-90deg)
+    ._next &-icon
+      transform: rotate(90deg)
+    &::after, &::before
+      position: absolute
+      content: ''
+      border-radius: 50%
+      background-size: 350%
+      z-index: -1
+    &::after
+      inset: 1px
+      background-image: $linear-main
+      background-position: 0%
+      background-color: #fff
+      transition: .4s
+    &::before
+      inset: 0px
+      background-image: $linear-main
+      background-position: 100%
+    &:hover
+      color: #fff
+      &::after
+        background-position: 100%
+        background-color: $prime
+    &._prev
+      &::after, &::before
+        transform: rotate(90deg)
+  &__arrow-icon
+  &__title
+    +gil6
+    font-size: 32px
+    line-height: 39px
+    margin-bottom: 0
+
+    grid-column: span 2
+  &__info
+  &__labels
+    display: flex
+    gap: 8px
+    align-items: center
+    margin-bottom: 20px
+  &__label
+    +gil5
+    padding: 4px 7px
+    font-size: 10px
+    line-height: 138%
+    border: 1px solid currentColor
+    border-radius: 20px
+    &._new, &._sale-5
+      color: #29A71A
+    &._sale
+      color: #E84724
+    &._sale-10
+      color: #B074EE
+    &._sale-15
+      color: #FF7800
+  &__subtitle
+    +gil5
+    font-size: 14px
+    margin-bottom: 14px
+  &__same-series
+    margin-bottom: 30px
+    &-wrap
+      position: relative
+      padding: 0 32px
+      max-width: 396px
+    &-item
+      display: block
+      width: 60px
+      height: 60px
+      border-radius: 8px
+      overflow: hidden
+    &-img
+      border-radius: 8px
+      object-fit: cover
+      object-position: center
+  &__details
+    margin-bottom: 12px
+    &>:not(:last-child)
+      margin-bottom: 7.5px
+  &__detail
+    display: flex
+    font-size: 14px
+    &-name
+      color: #9D9D9D
+      flex-basis: 213px
+  &__character
+    +gil5
+    font-size: 15px
+    line-height: 18px
+    color: #E77D7B
+  &__aside
+  &__tools
+    padding: 22px
+    background: #FFFFFF
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.16)
+    border-radius: 20px
+    &-wrap
+      position: relative
+      display: flex
+      flex-direction: column
+  &__favorite
+    &-button
+      display: flex
+      align-items: center
+      justify-content: center
+      align-self: flex-end
+      z-index: 10
+      margin-bottom: 15px
+    &-icon
+      transition: 0.4s
+      fill: #fff
+      stroke: #141414
+      ._checked &
+        fill: url(#linear-main)
+        stroke: url(#linear-main)
+    &-button:hover &-icon
+      fill: #E77D7B
+      stroke: #E77D7B
+  &__prices
+    display: flex
+    gap: 14px
+    align-items: baseline
+    margin-bottom: 18px
+  &__price
+    display: flex
+    gap: 2px
+    justify-content: flex-end
+    align-items: baseline
+    margin-bottom: 15px
+    white-space: nowrap
+    &:not(:last-child)
+      color: #29A71A
+    &-value
+      font-size: 34px
+      +gil6
+    &-divider
+      +gil3
+      font-size: 34px
+      color: #9D9D9D
+    &-unit
+      font-size: 24px
+      color: #9D9D9D
+    & + &
+      position: absolute
+      top: 0
+      left: 0
+      text-decoration-line: line-through
+      color: #9D9D9D
+      gap: 0
+      margin-bottom: 0
+    & + & &
+      &-value, &-divider, &-unit
+        color: #9D9D9D
+        +gil4
+        font-size: 16px
+  &__cart
+    position: relative
+    display: flex
+    justify-content: flex-end
+    flex-grow: 1
+    gap: 7px
+  &__in-basket
+    width: 148px
+    border-radius: 34px
+    line-height: 20px
+    padding: 12px 6px
+    white-space: nowrap
+    color: #fff
+    z-index: 10
+    display: grid
+    overflow: hidden
+    background-color: $prime
+    background-image: $linear-main
+    background-size: 275%
+    background-position: 100%
+    transition: .4s
+    &:hover
+      background-position: 0
+    &-add, &-now
+      grid-column: 1
+      grid-row: 1
+      transition: .4s
+    &-add
+      transform: translateX(0)
+    &-now
+      transform: translateX(100%)
+
+  &._active &__in-basket
+    background-position: 0
+    &-add
+      transform: translateX(-100%)
+    &-now
+      transform: translateX(0)
+  &__count
+    display: flex
+    justify-content: space-between
+    width: 100px
+
+    border: 1px solid #9D9D9D
+    border-radius: 34px
+    padding: 11px 20px
+    &-inc, &-dec
+      +gil5
+      flex-shrink: 0
+      width: 10px
+      line-height: 19px
+      color: #9D9D9D
+      transition: .4s
+      &:hover
+        color: $prime
+    &-input
+      display: block
+      border: none
+      background-color: transparent
+      padding: 0
+      width: 100%
+      line-height: 19px
+      +gil5
+      color: $text
+      text-align: center
+      &:disabled
+        opacity: 1
+
+@media screen and ( max-width: 1399px )
+  .product
+    &__container
+      grid-template-columns: 400px 1fr 300px
+      gap: 40px
+    &__img
+      width: 400px
+      height: 400px
+    &__same-series
+      &-wrap
+        max-width: 338px
+    &__detail
+      &-name
+        flex-basis: 187px
+    &__content
+      gap: 30px
+
+@media screen and ( max-width: 1199px )
+  .product
+    &__container
+      grid-template-columns: 600px 1fr
+    &__imgs
+      grid-row: 1
+    &__img
+      width: 600px
+      height: 600px
+    &__title
+      grid-column: span 1
+    &__aside
+      position: sticky
+      top: 175px
+      grid-row: 1 / 4
+      grid-column: 2
+    &__same-series
+      &-wrap
+        max-width: none
+      &-item
+        width: 80px
+        height: 80px
+
+@media screen and ( max-width: 991px )
+  .product
+    &__container
+      gap: 30px
+      grid-template-columns: 400px 290px
+    &__img
+      width: 400px
+      height: 400px
+    &__title
+      font-size: 26px
+      line-height: 32px
+
+@media screen and ( max-width: 767px )
+  .product
+    padding: 24px 0 50px
+    &__container
+      gap: 27px
+      grid-template-columns: 100%
+    &__tools
+      position: fixed
+      -webkit-transform: translateZ(5px)
+      padding: 27px 0 72px
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: 55
+      box-shadow: 0px -12px 30px rgba(0, 0, 0, 0.08)
+      border-radius: 12px 12px 0 0
+      transition: .3s
+      &._hidden
+        transform: translateY(100%)
+        -webkit-transform: translateZ(5px) translateY(100%)
+      &-wrap
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: space-between
+        gap: 6px 10px
+        max-width: 540px
+        width: 100%
+        padding-right: 0.625rem
+        padding-left: 0.625rem
+        margin-right: auto
+        margin-left: auto
+    &__aside
+      grid-column: 1
+      grid-row: auto
+      z-index: 55
+      background-color: #fff
+    &__imgs
+      padding-right: 0
+      &-thumbs
+        &-wrap
+          padding: 0 32px
+    &__img
+      width: 100%
+      height: 520px
+    &__thumb
+      &-wrap
+        width: 82px
+        height: 82px
+    &__same-series
+      margin-bottom: 26px
+      &-item
+        width: 82px
+        height: 82px
+    &__labels
+      margin-bottom: 25px
+    &__favorite-button
+      position: relative
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 44px
+      height: 44px
+      border-radius: 50%
+      margin-bottom: 0
+      order: 1
+      &:after, &:before
+        position: absolute
+        content: ''
+        border-radius: 50%
+        z-index: -1
+      &:after
+        inset: 1px
+        background-color: #fff
+      &:before
+        inset: 0
+        background-color: #9D9D9D
+        background-image: $linear-main
+        background-size: 350%
+        background-position: 0
+        transition: .4s
+      &._checked
+        &:before
+          background-position: 100%
+    &__cart
+      justify-content: flex-start
+    &._active &__in-basket
+      width: calc(100% - 110px)
+      left: 110px
+      background-color: #E77D7B
+      background-position: 0
+    &__in-basket
+      position: absolute
+      width: 100%
+      left: 0
+      right: 0
+      bottom: 0
+      top: 0
+
+    &__prices
+      flex-basis: 100%
+      margin-bottom: 0
+    &__price
+      & + &
+        position: static
+
+@media screen and ( max-width: 576px )
+  .product
+    &__img
+      height: calc(355 / 375 * 100vw)
+    &__thumb
+      border-radius: 6px
+      &-wrap
+        width: 100%
+        height: calc(60 / 375 * 100vw - 9px)
+        &::after
+          border-radius: 6px
+    &__same-series
+      &-item
+        width: 100%
+        height: calc(60 / 375 * 100vw - 9px)

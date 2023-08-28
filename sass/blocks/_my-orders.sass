@@ -1,0 +1,99 @@
+.my-orders
+  display: flex
+  flex-direction: column
+  &__list
+    display: flex
+    flex-direction: column
+    gap: 30px
+  &__order
+    display: block
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.08)
+    border-radius: 20px
+    transition: .4s
+  &__row
+    display: flex
+    justify-content: space-between
+    align-items: center
+    gap: 15px
+  &__row-title
+    padding: 21px 21px 21px 30px
+    border-bottom: 1px solid #F5F5F5
+  &__row-order
+    padding: 29px
+  &__info
+    display: flex
+    flex-direction: column
+    gap: 6px
+    &:last-child
+      flex-basis: 150px
+  &__number
+    font-size: 20px
+    line-height: calc( 24 / 20)
+  &__label
+    font-weight: 400
+    color: #9D9D9D
+  &__btn
+    padding: 12px
+    letter-spacing: -.4px
+    border-radius: 50px
+    position: relative
+    +gil5
+    line-height: 19px
+    color: $prime
+    transition: .4s
+    cursor: pointer
+    &::after
+      content: ''
+      position: absolute
+      border-radius: 50px
+      inset: 1px
+      background-color: #fff
+      z-index: -1
+    &::before
+      content: ''
+      border-radius: 51px
+      position: absolute
+      inset: 0
+      background-color: $prime
+      background-image: $linear-main
+      background-size: 300%
+      background-position: 100%
+      transition: 0.4s
+      z-index: -1
+    &:hover, &:focus
+      color: $text
+      &::before
+        background-position: 0
+
+@media screen and ( max-width: 1200px )
+  .my-orders
+    &__info
+      &:last-child
+        flex-basis: 0
+
+@media screen and ( max-width: 767px )
+  .my-orders
+    &__row-order
+      flex-direction: column
+      align-items: flex-start
+      gap: 13px
+
+@media screen and ( max-width: 576px )
+  .my-orders
+    &__list
+      gap: 19px
+    &__order
+      border-radius: 12px
+    &__number
+      font-size: 18px
+      line-height: calc( 22 / 18)
+    &__btn
+      font-size: 13px
+      line-height: calc( 16 / 13)
+      padding: 12px 14px
+    &__row-title
+      padding: 14px 13px 13px 22px
+    &__row-order
+      padding: 21px
+    &__info
+      gap: 3px

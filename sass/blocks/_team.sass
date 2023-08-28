@@ -1,0 +1,46 @@
+.team
+  padding: 50px 0
+  &__container
+    margin-bottom: 52px
+
+.team-card
+  &__img
+    width: 300px
+    height: 370px
+    border: 1px solid #D9D9D9
+    border-radius: 20px
+    object-fit: cover
+    margin-bottom: 16px
+  &__name
+    +gil5
+    font-size: 20px
+    margin-bottom: 4px
+
+.team-swiper
+  position: relative
+
+@media screen and ( max-width: 991px )
+  .team-card
+    &__img
+      height: 265px
+
+@media screen and ( max-width: 767px )
+  .team
+    padding: 44px 0 25px
+    &__container
+      margin-bottom: 26px
+
+  .team-card
+    &__img
+      height: 315px
+      margin-bottom: 10px
+    &__name
+      font-size: 16px
+      margin-bottom: 1px
+    &__post
+      font-size: 12px
+
+@media screen and ( max-width: 576px )
+  .team-card
+    &__img
+      height: calc( 212 / 375 * 100vw)

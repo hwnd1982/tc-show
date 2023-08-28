@@ -1,0 +1,178 @@
+.catalog-menu
+  --shift: 146.5px
+  position: absolute
+  width: 100%
+  transform: translateX(calc(-50% - 1rem - 50vw))
+  top: 0
+  left: 0
+  height: calc(100vh - var(--shift))
+  min-height: max-content
+  background-color: #fff
+  transition: .4s
+  &::after
+    content: ''
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    width: 100vw
+    background-color: #fff
+  ._scroll &
+    --shift: 79.5px
+  &._show
+    transform: translateX(calc(-100% - 30px))
+  &__wrap
+    position: absolute
+    width: 401px
+    max-width: 30vw
+    top: 0
+    right: 0
+    height: calc(100vh - var(--shift))
+    padding: 32px 30px 0
+    transition: .4s
+    z-index: -1
+    ._active + &
+      transform: translateX(100%)
+    &-name
+      +gil5
+      margin-bottom: 30px
+  &__list, &__main
+    display: flex
+    flex-direction: column
+    gap: 16px
+    padding-bottom: 79.5px
+    height: 100%
+    overflow: hidden auto
+    -ms-overflow-style: none
+    scrollbar-width: none
+    &::-webkit-scrollbar
+      display: none
+    &::after
+      content: ''
+      position: absolute
+      inset: 0
+      background-color: #fff
+      z-index: -1
+  &__list
+    &::after
+      border-left: 1px solid #F5F5F5
+  &__main-name
+    display: none
+  &__item, &__subitem
+    &-name
+      display: flex
+      align-items: center
+      justify-content: space-between
+      cursor: pointer
+      &._active
+        color: $prime
+  &__item, &__subitem
+    &-name, &-link
+      color: $text
+      transition: .4s
+      &:hover
+        color: $prime
+    &-link
+      position: relative
+      width: max-content
+  &__item
+    &-name, &-link
+      +gil5
+  &__arrow
+    display: block
+    transition: .4s
+    transform: rotate(-90deg)
+    flex-shrink: 0
+    ._active &
+      color: inherit
+      transform: rotate(90deg)
+
+@media screen and ( max-width: 1199 )
+  .catalog-menu
+    --shift: 199.5px
+    ._scroll &
+      --shift: 129.5px
+
+@media screen and ( max-width: 991px )
+  .catalog-menu
+    --shift: 125.5px
+    &._show
+      transform: translateX(calc(-100% - 10px))
+    &__wrap
+      position: absolute
+      padding: 10px 10px 0
+      max-width: 28vw
+
+@media screen and ( max-width: 991px )
+  .catalog-menu
+    position: static
+    transform: none
+    height: auto
+    &::after
+      content: none
+    &._show
+      transform: none
+    &__main
+      padding-bottom: 24px
+      margin-bottom: 24px
+      border-bottom: 1px solid #F5F5F5
+    &__main, &__item, &__subitem
+      &-name
+        display: flex
+        align-items: center
+        justify-content: space-between
+        cursor: pointer
+        &._active
+          color: $prime
+    &__main, &__list
+      display: flex
+      flex-direction: column
+      gap: 16px
+      overflow: visible
+      height: auto
+    &__main-name
+      margin-bottom: 21px
+      +gil5
+      font-size: 20px
+    &__item, &__subitem
+      &-name, &-link
+        color: $text
+        transition: .4s
+        &:hover
+          color: $prime
+      &-name
+        &._active
+          margin-bottom: 16px
+    &__item
+      &-name
+        +gil5
+      &-link
+        display: block
+        position: relative
+        width: max-content
+    &__item-link
+      +gil5
+    &__wrap
+      position: static
+      width: 100%
+      max-width: none
+      height: 0
+      padding: 0
+      overflow: hidden
+      transition: .4s
+      &-name
+        display: none
+      ._active + &
+        height: auto
+        transform: none
+    &__list
+      padding-left: 14px
+      padding-bottom: 0
+    &__arrow
+      display: block
+      width: 11px
+      transition: .4s
+      transform: rotate(0)
+      ._active &
+        color: inherit
+        transform: rotate(180deg)

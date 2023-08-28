@@ -1,0 +1,63 @@
+.catalog-links
+  padding: 50px 0
+  &__list
+    display: flex
+    flex-wrap: wrap
+    gap: 16px
+  &__item:last-child > &__link
+    background-image: $linear-main
+    color: #fff
+    +gil6
+    +linear-main-hover(#DF55AD, $prime)
+  &__item:not(:last-child) > &__link
+    +gil5
+    background-color: #fff
+    color: $text
+    animation: linear-transform-fadeOut 0.4s ease-in-out forwards
+    &:hover
+      color: $prime
+      &::after
+        background-color: $prime
+        background-position: 0
+        animation: linear-transform-fadeIn 0.4s ease-in-out forwards
+  &__link
+    position: relative
+    display: block
+    align-self: center
+    position: relative
+    padding: 16px 26px
+    transition: .4s
+    font-size: 18px
+    line-height: 22px
+    border-radius: 34px
+    &::after
+      position: absolute
+      content: ''
+      inset: -1px
+      border-radius: 35px
+      z-index: -1
+      background-image: $linear-main
+      background-size: 275%
+      background-position: 100%
+
+@media screen and ( max-width: 1199px )
+  .catalog-links
+    padding: 40px 0
+    &__list
+      gap: 12px
+    &__link
+      font-size: 16px
+      padding: 14px 20px
+      line-height: 20px
+
+@media screen and ( max-width: 991px )
+  .catalog-links
+    padding: 35px 0
+    &__title
+      margin-bottom: 27px
+    &__list
+      gap: 10px
+    &__link
+      font-size: 14px
+      line-height: 17px
+      padding: 12px 16px

@@ -1,0 +1,429 @@
+.goods-card
+  display: grid
+  position: relative
+  justify-content: flex-start
+  grid-template-rows: repeat(4, min-content) 1fr
+  grid-template-areas: 'imgs' 'labels' 'prices' 'name' 'details' 'tools'
+  padding: 10px
+  border-radius: 20px
+  align-items: start
+  z-index: 1
+  min-height: 511px
+  .goods-swiper &
+    width: 246.4px
+    margin-right: 14px
+  &::after
+    content: ''
+    position: absolute
+    border-radius: 20px
+    inset: 1px
+    background-color: #fff
+    z-index: -1
+  &::before
+    content: ''
+    border-radius: 21px
+    position: absolute
+    inset: 0px
+    background-color: #f0f0f0
+    background-image: $linear-main
+    background-size: 1200%
+    background-position: 0
+    transition: 0.4s
+    z-index: -1
+  &._active
+    &::before
+      background-position: 100%
+  &__imgs
+    max-width: 100%
+    width: 100%
+    grid-area: imgs
+    border-radius: 15px
+    margin-bottom: 8px
+    &-pagination
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      display: flex
+      justify-content: center
+      align-items: center
+      gap: 4px
+      z-index: 10
+  &__img
+    object-fit: cover
+    position: absolute
+    min-height: 100%
+    min-width: 100%
+    inset: 0
+    &-wrap
+      position: relative
+      border-radius: 15px
+      width: auto
+      padding-bottom: 100%
+      overflow: hidden
+  &__dot
+    position: relative
+    height: 8px
+    display: flex
+    cursor: pointer
+    border-radius: 50%
+    transition: .4s
+    &::after
+      content: ''
+      position: absolute
+      inset: 0
+      border-radius: 50%
+      transition: .4s
+      background-color: transparent
+      background-size: 350%
+      background-position: 0
+      background-image: $linear-main
+    &._active
+      &::after
+        background-color: $prime
+        background-position: 100%
+    &:hover
+      background-color: $prime
+  &__favorite
+    &-button
+      position: absolute
+      display: flex
+      align-items: center
+      justify-content: center
+      right: 20px
+      top: 20px
+      z-index: 10
+    &-button:hover &-icon
+      fill: $prime
+      stroke: $prime
+    &-icon
+      transition: .4s
+      fill: #fff
+      stroke: $text
+      ._checked &
+        fill: url(#linear-main)
+        stroke: url(#linear-main)
+  &__name
+    grid-area: name
+    display: block
+    font-size: 14px
+    color: $text
+    margin-bottom: 12px
+    transition: .4s
+    +text-line-overflow(3)
+    &:hover
+      color: $prime
+  &__details
+    grid-area: details
+    margin-bottom: 20px
+    & :nth-child(n+4)
+      display: none
+    &>:not(:last-child)
+      margin-bottom: 2px
+  &__detail
+    display: flex
+    font-size: 12px
+    &-name
+      color: #9D9D9D
+      flex-basis: 98px
+      flex-shrink: 0
+      +text-line-overflow(1)
+    &-value
+      +text-line-overflow(1)
+  &__tools
+    grid-area: tools
+    display: flex
+    justify-content: flex-end
+    flex-grow: 1
+  &__in-basket
+    position: absolute
+    display: grid
+    overflow: hidden
+    bottom: 10px
+    left: 10px
+    right: 9px
+    border-radius: 34px
+    line-height: 20px
+    padding: 12px 6px
+    white-space: nowrap
+    color: #fff
+    transition: 0.4s
+    background-color: $prime
+    background-image: $linear-main
+    background-size: 275%
+    background-position: 100%
+    z-index: 10
+    &:hover
+      background-position: 0
+    &-add, &-now
+      grid-column: 1
+      grid-row: 1
+      transition: .4s
+    &-add
+      transform: translateX(0)
+    &-now
+      transform: translateX(100%)
+
+  &._active &__in-basket
+    right: 115px
+    background-position: 0
+    &-add
+      transform: translateX(-100%)
+    &-now
+      transform: translateX(0)
+  &__count
+    display: flex
+    justify-content: space-between
+    width: 100px
+    align-items: baseline
+    border: 1px solid #9D9D9D
+    border-radius: 34px
+    padding: 11px 20px
+    &-inc, &-dec
+      +gil5
+      flex-shrink: 0
+      width: 10px
+      line-height: 19px
+      color: #9D9D9D
+      transition: .4s
+      &:hover
+        color: $prime
+    &-input
+      display: block
+      border: none
+      background-color: transparent
+      padding: 0
+      width: 100%
+      line-height: 19px
+      +gil5
+      color: $text
+      text-align: center
+      &:disabled
+        opacity: 1
+  &__labels
+    grid-area: labels
+    display: flex
+    align-items: center
+    gap: 8px
+    margin-bottom: 12px
+  &__label
+    +gil5
+    font-size: 10px
+    padding: 2.5px 7px 2.5px
+    line-height: 150%
+    border: 1px solid currentColor
+    border-radius: 20px
+    &._new, &._sale-5
+      color: #29A71A
+    &._sale
+      color: #E84724
+    &._sale-10
+      color: #B074EE
+    &._sale-15
+      color: #FF7800
+  &__prices
+    grid-area: prices
+    display: flex
+    gap: 14px
+    align-items: baseline
+    margin-bottom: 6px
+  &__price
+    display: flex
+    gap: 2px
+    justify-content: flex-end
+    align-items: baseline
+    margin-bottom: 4px
+    white-space: nowrap
+    &:not(:last-child)
+      color: #29A71A
+    &-value
+      font-size: 26px
+      +gil6
+    &-divider
+      +gil3
+      font-size: 26px
+      color: #9D9D9D
+    &-unit
+      font-size: 18px
+      color: #9D9D9D
+    & + &
+      text-decoration-line: line-through
+      color: #9D9D9D
+      gap: 0
+    & + & &
+      &-value, &-divider, &-unit
+        color: #9D9D9D
+        +gil4
+        font-size: 14px
+
+  ._inline &
+    grid-template-rows: auto
+    grid-template-columns: 211px 1fr min-content
+    grid-template-rows: min-content 1fr min-content
+    grid-template-areas: 'imgs name labels' 'imgs details prices' 'imgs tools tools'
+    border-radius: 12px
+    padding: 20px
+    gap: 14px 20px
+    min-height: 251px
+    &__imgs, &__name, &__labels, &__price
+      margin: 0
+    &__labels, &__prices
+      justify-self: end
+    &__prices
+      align-self: end
+      padding-bottom: 16px
+      flex-direction: column-reverse
+      align-items: flex-end
+      justify-content: flex-start
+      gap: 6px
+    &__labels
+      padding-right: 42px
+    &__tools
+      gap: 8px
+      justify-self: end
+    &__in-basket
+      position: static
+      width: 130px
+    &__count
+      position: static
+      width: 100px
+      flex-shrink: 0
+    &__details
+      &>:nth-child(n+4)
+        display: flex
+      &>:not(:last-child)
+        margin-bottom: 4px
+    &._active &__in-basket
+      flex-basis: 100%
+
+@media screen and ( max-width: 1399px )
+  .goods-card
+    min-height: 532px
+    .goods-swiper &
+      width: 266.5px
+      margin-right: 14px
+
+    ._inline &
+      min-height: auto
+
+@media screen and ( max-width: 1199px )
+  .goods-card
+    min-height: 490px
+    .goods-swiper &
+      width: 221.5px
+      margin-right: 14px
+
+    &__detail
+      &-name
+        flex-basis: 75px
+
+    ._inline &
+      min-height: auto
+      &__detail
+        &-name
+          flex-basis: 98px
+
+@media screen and ( max-width: 767px )
+  .goods-card
+    min-height: 516px
+    .swiper-horizontal > &__imgs-pagination.swiper-pagination-bullets
+      bottom: 13px
+    ._inline &
+      min-height: auto
+      gap: 0 10px
+      padding: 10px
+      grid-template-rows: auto
+      grid-template-columns: .63fr 1fr
+      grid-template-rows: 22px minmax(60px, 1fr) 44px min-content min-content
+      grid-template-areas: 'imgs labels' 'imgs prices' 'imgs tools' 'name name' 'details details'
+      min-height: 322px
+      border-radius: 12px
+      &__labels
+        width: 100%
+      &__tools
+        width: 100%
+        padding-top: 0
+        gap: 10px
+        justify-content: space-between
+      &__name
+        font-size: 14px
+        margin: 16px 0 10px
+        min-height: 38px
+        line-height: 1.3
+      &__prices
+        padding-bottom: 7px
+      &__details
+        gap: 1px
+        margin-bottom: 0
+        &>:not(:last-child)
+          margin-bottom: 2px
+      &__detail
+        &-name
+          flex-basis: 40.355%
+      &__in-basket
+        width: 100%
+      &__count
+        width: 80px
+        padding: 11px
+        z-index: 1
+        opacity: 1
+      &__favorite
+        &-button
+          top: 10px
+          right: 10px
+    .swiper-horizontal > &__imgs-pagination.swiper-pagination-bullets
+      bottom: 6px
+
+@media screen and ( max-width: 575px )
+  .goods-card
+    min-height: calc(250.5px + 50vw)
+
+    ._inline &
+      min-height: auto
+
+@media screen and ( max-width: 480px )
+  .goods-card
+    min-height: calc(242.5px + 50vw)
+    &__name
+      font-size: 12px
+      margin-bottom: 5px
+      -webkit-line-clamp: 4
+    &__imgs
+      margin-bottom: 6px
+    &__tools
+    &._active &__in-basket
+      right: 9px
+    &__count
+      opacity: 0
+      z-index: -1
+    &__labels
+      margin-bottom: 10px
+      gap: 5px
+    &__detail
+      font-size: 10px
+      &:not(:last-child)
+        margin-bottom: 2px
+      &-name
+        flex-basis: 60px
+        white-space: nowrap
+        text-overflow: ellipsis
+        overflow: hidden
+    &__favorite-icon
+      width: 17px
+      height: 17px
+    &__prices
+      margin-bottom: 2
+    &__name
+      line-height: 1.4
+      margin-bottom: 6px
+    &__price
+      gap: 1px
+      &-value
+        font-size: 20px
+      &-divider
+        font-size: 20px
+      &-unit
+        font-size: 14px
+      & + &
+        &-value, &-divider, &-unit
+          font-size: 12px

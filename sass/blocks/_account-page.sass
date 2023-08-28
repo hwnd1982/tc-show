@@ -1,0 +1,64 @@
+.account-page
+  &__title
+    display: inline-block
+    margin-bottom: 30px
+    transition: 0.4s
+  &__list
+    padding: 0
+    margin: 0
+    list-style: none
+    display: grid
+    gap: 25px
+    grid-template-columns: repeat(auto-fill, minmax(172px, 1fr))
+    grid-auto-rows: 172px
+    justify-content: center
+  &__link
+    display: flex
+    line-height: calc( 22 / 16)
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    padding: 34px 0
+    font-size: 16px
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.08)
+    border-radius: 20px
+    color: #141414
+    gap: 22px
+    transition: 0.4s
+    &:hover
+      color: #E77D7B
+    &-logout
+      svg
+        filter: grayscale(100%)
+  &__icon
+    width: 60px
+
+@media screen and ( max-width: 1399px )
+  .account-page
+    &__link
+      justify-content: center
+      height: 100%
+
+@media screen and ( max-width: 1199px )
+  .account-page
+    &__list
+      grid-auto-rows: 197px
+
+@media screen and ( max-width: 992px )
+  .account-page
+    &__title
+      width: 100%
+      text-align: center
+    &__list
+      grid-auto-rows: 217px
+
+@media screen and ( max-width: 767px )
+  .account-page
+    &__list
+      gap: 11px
+      grid-auto-rows: 255px
+
+@media screen and ( max-width: 576px )
+  .account-page
+    &__list
+      grid-auto-rows: calc(172 / 375 * 100vw)

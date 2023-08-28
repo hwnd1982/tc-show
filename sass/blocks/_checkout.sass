@@ -1,0 +1,89 @@
+.checkout
+  padding: 50px 0 100px
+  &__content
+    display: grid
+    grid-template-columns: 1fr 410px
+    gap: 50px
+    align-items: start
+  &__fieldset
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 27px
+    margin-bottom: 70px
+    transition: .4s
+    &:last-of-type
+      margin-bottom: 29px
+
+    &:disabled
+      height: 0
+      margin-bottom: -61px
+      overflow: hidden
+      opacity: 0
+  &__legend
+    +gil5
+    font-size: 26px
+    line-height: 31px
+    margin-bottom: 30px
+  &__checkbox-list
+    margin-bottom: 70px
+    & :not(:last-of-type)
+      margin-bottom: 26px
+    &:last-of-type
+      margin-bottom: 29px
+  &__address
+    padding: 2px 0 0 37px
+    font-size: 14px
+    & span
+      color: #9D9D9D
+  &__submit
+    display: block
+    padding: 16px
+    border-radius: 50px
+    text-align: center
+    z-index: 1
+    line-height: 20px
+    +gil6
+    color: #fff
+    +linear-main-hover(#DF55AD, $prime)
+    width: 230px
+    &:hover
+      color: #fff
+
+@media screen and ( max-width: 1199px )
+  .checkout
+    &__fieldset
+      grid-template-columns: 1fr
+
+@media screen and ( max-width: 991px )
+  .checkout
+    &__content
+      grid-template-columns: 1fr 1fr
+      gap: 30px
+
+@media screen and ( max-width: 767px )
+  .checkout
+    padding: 24px 0 71px
+    &__content
+      grid-template-columns: 1fr
+      gap: 43px
+      &>:last-child
+        order: -1
+    &__title
+      margin-bottom: 26px
+    &__legend
+      font-size: 20px
+      line-height: 24px
+      margin-bottom: 21px
+    &__form
+      margin: 0 4px
+    &__fieldset
+      gap: 18px
+      margin-bottom: 43px
+    &__checkbox-list
+      margin-bottom: 43px
+      &:last-of-type
+        margin-bottom: 46px
+      & :not(:last-of-type)
+        margin-bottom: 20px
+    &__submit
+      margin: 0 auto

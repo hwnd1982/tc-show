@@ -1,0 +1,346 @@
+*,
+::after,
+::before
+  box-sizing: border-box
+  outline: none
+
+html
+  min-height: 100%
+
+body
+  min-height: 100vh
+  // min-height: 120vh
+  +gil4
+  display: flex
+  flex-direction: column
+  overflow-x: hidden
+  margin: 0
+  font-size: 16px
+  line-height: 1.38
+  color: $text
+  cursor: default
+  // Запрет выделения текста
+  //-webkit-touch-callout: none
+  //-webkit-user-select: none
+  //-khtml-user-select: none
+  //-moz-user-select: none
+  //-ms-user-select: none
+  //user-select: none
+
+img
+  max-width: 100%
+
+a
+  outline: none
+  text-decoration: none
+  &:focus
+    outline: none
+    box-shadow: none !important
+  &:hover
+    text-decoration: none
+
+button
+  background-color: transparent
+  border: none
+  outline: none
+  padding: 0
+  &:focus, &:hover
+    outline: none
+
+legend
+  float: none
+  margin: 0
+
+p
+  margin: 0
+  padding: 0
+  font-size: 16px
+  line-height: 138%
+  +gil4
+  color: #141414
+
+ul
+  margin: 0
+  padding: 0
+  li
+    list-style: none
+#arrow
+  margin-bottom: -60px
+  padding-top: 130px
+  pointer-events: none
+  opacity: 0
+  margin-top: -70px
+
+.scroll-hidden
+  overflow: hidden
+  padding: 0 15px 0 0
+
+.main
+  flex-shrink: 0
+  flex-grow: 1
+  &-block
+    overflow: hidden
+
+* > svg .icon-hover
+  transition: .4s
+  opacity: 0
+*:hover > svg .icon-hover
+  opacity: 1
+
+.contact-link
+  font-size: 22px
+  line-height: 1.2
+  +gil6
+  +text-linear
+  +linear-main-hover(#DF55AD, $prime)
+
+.discount, .new
+  position: absolute
+  right: 0
+  top: 0
+  transform: translate(100%, -30%)
+
+.overlay
+  position: fixed
+  -webkit-transform: translateZ(-1px)
+  inset: 0
+  z-index: -1
+  transition-property: all, z-index, transform
+  transition-duration: .4s, 0s, 0s
+  transition-delay: 0s, .4s, .4s
+  &._show
+    z-index: 55
+    -webkit-transform: translateZ(10px)
+    transition-delay: 0s, 0s, 0s
+    background-color: rgba(0, 0, 0, 0.3)
+    .filter-popup._active ~ &
+      z-index: 100
+      -webkit-transform: translateZ(12px)
+
+.title
+  +gil6
+  font-size: 38px
+  line-height: 47px
+  color: #141414
+  margin-bottom: 50px
+  &:last-child
+    margin-bottom: 0
+  ._favorite &
+    margin-bottom: 51px
+  ._thanks &
+    margin-bottom: 32px
+  &._search
+    & .search-count
+      +gil4
+      padding-left: 4px
+      font-size: 38px
+      line-height: 138%
+      color: #9D9D9D
+
+.shitty-design
+  &._cart-empty, &._thanks
+    padding-bottom: 52px
+  &._cart, &._contacts, &._categores
+    padding-bottom: 50px
+
+.before-content
+  padding-bottom: 32px
+  &._search
+    padding-bottom: 14px
+  &__bread-crumbs
+    padding-bottom: 50px
+    ._search &
+      padding-bottom: 48px
+
+.bread-crumbs
+  padding-top: 40px
+
+  &__link
+    color: $text
+    transition: .4s
+    &:hover
+      color: $prime
+    &:not(:last-child)::after
+      content: '\a0/'
+    &:last-child
+      pointer-events: none
+      color: #9D9D9D
+
+.catalog-button
+  position: relative
+  width: 29px
+  height: 22px
+  background-color: transparent
+  border: none
+  padding: 0
+  transition: .4s
+  margin-right: 8px
+  &__line
+    display: block
+    position: absolute
+    height: 3px
+    border-radius: 3px
+    width: 22px
+    transition: .4s
+    overflow: hidden
+    background-color: #fff
+    &-top
+      top: 15%
+      left: 50%
+      transform: translate(-50%, 50%)
+      ._active &
+        height: 4px
+        width: 70%
+        transform: translate(-50%, 6px) rotate(-135deg)
+        &:after
+          transform: translate(-50%, -50%) rotate(135deg)
+
+    &-bottom
+      bottom: 15%
+      left: 50%
+      transform: translate(-50%, 50%)
+      ._active &
+        height: 4px
+        width: 70%
+        transform: translate(-50%, -5px) rotate(135deg)
+        &:after
+          transform: translate(-50%, -50%) rotate(-135deg)
+
+    &-center
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -12%)
+      ._active &
+        transform: translate(-50%, -12%) scaleX(0)
+
+.menu-button
+  position: relative
+  width: 29px
+  height: 23px
+  background-color: transparent
+  border: none
+  padding: 0
+  transition: .4s
+  &__line
+    display: block
+    position: absolute
+    height: 3px
+    border-radius: 3px
+    transition: .4s
+    overflow: hidden
+    will-change: transform
+    &:after
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%) rotate(-45deg)
+      width: 29px
+      height: 23px
+      background-size: 200%
+      background-position: 100%
+      background-image: $linear-main
+      transition: .4s
+    &-top
+      top: 15%
+      left: 50%
+      width: 80%
+      transform: translate(-50%, 50%)
+      ._active &
+        width: 90%
+        transform: translate(-50%, 8px) rotate(-135deg)
+        &:after
+          transform: translate(-50%, -50%) rotate(135deg)
+
+    &-bottom
+      bottom: 15%
+      left: 50%
+      width: 80%
+      transform: translate(-50%, 50%)
+      ._active &
+        width: 90%
+        transform: translate(-50%, -5px) rotate(135deg)
+        &:after
+          transform: translate(-50%, -50%) rotate(-135deg)
+
+    &-center
+      top: 50%
+      left: 50%
+      width: 80%
+      transform: translate(-50%, 0)
+      ._active &
+        transform: translate(-50%, 0) scaleX(0)
+
+@keyframes linear-transform-fadeIn
+  0%
+    background-position: 100%
+  100%
+    background-position: 0
+
+@keyframes linear-transform-fadeOut
+  0%
+    background-position: 0
+  100%
+    background-position: 100%
+
+@keyframes fadeInRight
+  0%
+    transform: translateX(100vw)
+  100%
+    transform: translateX(0)
+
+.container
+  width: 100%
+  padding-right: 0.625rem
+  padding-left: 0.625rem
+  margin-right: auto
+  margin-left: auto
+
+@media (min-width: 992px)
+  .container
+    padding-right: 1rem
+    padding-left: 1rem
+
+@media screen and ( max-width: 1199px )
+  .header-main .contact-link
+    font-size: 18px
+
+@media screen and ( max-width: 767px )
+  .mobile-menu .contact-link
+    line-height: 1.2
+  .title
+    margin-bottom: 14px
+    font-size: 26px
+    line-height: 32px
+    ._favorite &, ._cart &
+      margin-bottom: 36px
+    ._thanks &
+      font-size: 24px
+      line-height: 29px
+      margin-bottom: 24px
+    &._search
+      line-height: 31px
+      & .search-count
+        padding-left: 0
+        font-size: 26px
+        line-height: 31px
+
+  .before-content
+    padding-bottom: 26px
+    &._search
+      padding-bottom: 28px
+    &__bread-crumbs
+      padding-bottom: 24px
+  .bread-crumbs
+    padding-top: 24px
+    line-height: 1.2
+    ._search &
+      padding-bottom: 25px
+    &__link
+      font-size: 14px
+
+  .shitty-design
+    &._contacts
+      padding-bottom: 41px
+    &._categores
+      padding-bottom: 46px
